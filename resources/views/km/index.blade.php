@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','subjecttask')
+@section('title','KM')
 @section('header')
 @endsection
 @section('content')
@@ -19,18 +19,20 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>КодПрЗ</th>
-                        <th>КодКМ</th>
+                        <th>КодКМ </th>
+                        <th>РодКМ</th>
+                        <th>ВидКМс</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
-                    @if(count($modelzadachi) > 0)
-                        @foreach($modelzadachi as $key=>$modelzadach)
+                    @if(count($kms) > 0)
+                        @foreach($kms as $key=>$km)
                             <tr>
                                 <td>{{$key + 1}}</td>
-                                <td>{{$modelzadach->КодПрЗ}}</td>
-                                <td><a href="{{url('/km/'.$modelzadach->КодКМ)}}">{{$modelzadach->КодКМ}}</a></td>
+                                <td><a href="{{url('compositionkmst/'.$km->КодКМ)}}">{{$km->КодКМ}}</a></td>
+                                <td>{{$km->РодКМ}}</td>
+                                <td>{{$km->ВидКМс}}</td>
                                 <td>
                                     <button class="btn btn-success">Edit</button>
                                     <button class="btn btn-danger">Delete</button>
@@ -39,7 +41,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="4" style="text-align:center"> There is no record</td>
+                            <td colspan="5" style="text-align:center"> There is no record</td>
                         </tr>
                     @endif
                 </tbody>

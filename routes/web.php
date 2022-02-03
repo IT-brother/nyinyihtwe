@@ -25,6 +25,8 @@ Route::post("/start",[App\Http\Controllers\StartPageController::class,'store']);
 Route::get("/selectmenu",[App\Http\Controllers\StartPageController::class,'show']);
 Route::get("/subjecttask",[App\Http\Controllers\SubjectTaskController::class,'index']);
 Route::get("/modelzadachi/{id}",[App\Http\Controllers\ModelZadachiController::class,'index']);
+Route::get("/km/{id}",[App\Http\Controllers\KmController::class,'index']);
+Route::get("/compositionkmst/{id}",[App\Http\Controllers\CompositionkmstController::class,'index']);
 
 
 //Route::get("/diagnoses/{filename}",[App\Http\Controllers\InformationController::class,'download']);
