@@ -1,0 +1,7 @@
+app\Http\Controllers\CategoryController.php
+app\Http\Controllers\LoginLogController.php
+app\Http\Controllers\UserController.php
+
+resources\views\category\index.blade.php
+resources\views\layouts\pagination.blade.php
+resources\views\user\index.blade.php => user folder အောက်က 
