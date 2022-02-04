@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\ModelZadachi;
 class ModelZadachiController extends Controller
 {
@@ -35,7 +36,15 @@ class ModelZadachiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+    }
+    public function store2(Request $request,$id)
+    {
+       DB::table("modelzadachi")->insert([
+            "КодПрЗ" => $request->get("КодПрЗ"),
+            "КодКМ" => $request->get("КодКМ")
+        ]);
+        return redirect("/modelzadachi/$id")->with("status","Successfully added");
     }
 
     /**

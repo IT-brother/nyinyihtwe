@@ -2,26 +2,7 @@
 @section('title','subjecttask')
 @section('header')
 @endsection
-@section('content')
-<!-- <div class="col-xl-12 bg-white mb-2 pt-3" style="border-radius:15px 15px 0px 0px">
-    <form class="row" method="POST"> 
-        @csrf 
-        <div class="form-group col-md-6 col-lg-3 pb-0">
-            <label for="title" class="control-label" style="margin:0px;padding:0;font-size:1.2em;color:#666;">Name</label>
-            <input type="text"  id="title" value="{{Auth::user()->name}}" style="background:#eee" autocomplete="off" class="mt-0 form-control">
-        </div>
-        <div class="form-group col-md-6 col-lg-6 m-0 pb-0">
-            <label for="name" class="control-label" style="margin:0px;padding:0;font-size:1.2em;color:#666;">Project Name </label>
-            <input type="text" name="name"  style="background:#eee" id="name" autocomplete="off" class="form-control">
-        </div>
-        <div class="form-group col-md-6 col-lg-3 mt-0 pt-0">
-            <label for="" class="control-label mt-0">&nbsp;&nbsp;</label>
-            <button type="submit"  value="Save" class="btn btn-primary mt-4"><i class="fa fa-search"></i> Save</button>
-        </div>
-    </form>
-    
-</div> -->
-   
+@section('content')   
         <div class="col-xl-12 mb-2">
             <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#subjecttaskModal">Add</button>
         </div>

@@ -9,4 +9,6 @@ class ModelZadachi extends Model
 {
     use HasFactory;
     protected $table = "modelzadachi";
+    protected $fillable=["КодПрЗ","КодКМ"];
+
 }
