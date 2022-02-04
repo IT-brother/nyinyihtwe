@@ -184,11 +184,11 @@
     <script src="{{asset('assets/js/vendor-all.min.js')}}"></script>
     <script src="{{asset('assets/js/plugins/bootstrap.min.js')}}"></script>
     <!-- <script src="assets/js/ripple.js"></script> -->
-    <script src="{{asset('assets/js/pcoded.min.js')}}"></script>
+    <!-- <script src="{{asset('assets/js/pcoded.min.js')}}"></script> -->
 
     <!-- apps -->
     <!-- <script src="{{asset('dist/js/app-style-switcher.js')}}"></script> -->
-    <script src="{{asset('dist/js/feather.min.js')}}"></script>
+    <!-- <script src="{{asset('dist/js/feather.min.js')}}"></script> -->
     <!-- <script src="{{asset('assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')}}"></script> -->
     <script src="{{asset('dist/js/sidebarmenu.js')}}"></script>
     <!--Custom JavaScript -->

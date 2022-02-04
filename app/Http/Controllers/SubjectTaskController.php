@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 use App\Models\SubjectTask;
 class SubjectTaskController extends Controller
 {
@@ -35,7 +37,18 @@ class SubjectTaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request->all();
+        // $subjecttask = new SubjectTask();
+        // $subjecttask->КодПрЗ =$request->get("КодПрЗ");
+        // $subjecttask->НаименованиеПрЗ = $request->get("НаименованиеПрЗ");
+        // $subjecttask->КоличествоСтатКМвПрЗ = $request->get("КоличествоСтатКМвПрЗ");
+        // $subjecttask->save();
+        $subjecttask = DB::table("subjecttask")->insert([
+            "КодПрЗ" => $request->get("КодПрЗ"),
+            "НаименованиеПрЗ" => $request->get("НаименованиеПрЗ"),
+            "КоличествоСтатКМвПрЗ" => $request->get("КоличествоСтатКМвПрЗ")
+        ]);
+        return redirect("/subjecttask")->with("status","Successfully added");
     }
 
     /**
