@@ -9,4 +9,5 @@ class Km extends Model
 {
     use HasFactory;
     protected $table="kmtable";
+    protected $fillable =["КодКМ","РодКМ","ВидКМс"];
 }

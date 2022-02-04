@@ -3,6 +3,9 @@
 @section('header')
 @endsection
 @section('content')
+    <div class="col-xl-12 mb-2">
+        <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#kmModal">Add</button>
+    </div>
     <div class="col-xl-12">
         @if(count($errors->all()) > 0)
             <div class="alert alert-danger w-50">{{implode(",",$errors->all())}}</div>
@@ -47,6 +50,42 @@
                 </tbody>
             </table>
         </div>
+<!-- modals --->
+<div class="modal fade" id="kmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form method="POST">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create New resource</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="КодКМ">КодКМ <b class="text-danger">*</b></label>
+                        <input type="text" class="form-control" required autocomplete="off" name="КодКМ" id="КодКМ">
+                    </div>
+                    <div class="form-group">
+                        <label for="РодКМ">РОДКМ <b class="text-danger">*</b></label>
+                        <input type="text" class="form-control" name="РодКМ" required autocomplete="off" id="РодКМ">
+                    </div>
+                    <div class="form-group">
+                        <label for="ВидКМс1">V <b class="text-danger">*</b></label>
+                        <input type="radio"  name="ВидКМс" value="v" required autocomplete="off" id="ВидКМс1">
+                        <label for="ВидКМс2">C <b class="text-danger">*</b></label>
+                        <input type="radio"  name="ВидКМс" value="c" required autocomplete="off" id="ВидКМс2">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection
 @section("script")
 

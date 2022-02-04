@@ -28,6 +28,8 @@ Route::post("/subjecttask",[App\Http\Controllers\SubjectTaskController::class,'s
 Route::get("/modelzadachi/{id}",[App\Http\Controllers\ModelZadachiController::class,'index']);
 Route::post("/modelzadachi/{id}",[App\Http\Controllers\ModelZadachiController::class,'store2']);
 Route::get("/km/{id}",[App\Http\Controllers\KmController::class,'index']);
+Route::post("/km/{id}",[App\Http\Controllers\KmController::class,'store2']);
+
 Route::get("/compositionkmst/{id}",[App\Http\Controllers\CompositionkmstController::class,'index']);
 Route::get("/structure/{id}",[App\Http\Controllers\StructureController::class,'index']);
 Route::get("/elementdstr/{id}",[App\Http\Controllers\ElementdstrController::class,'index']);

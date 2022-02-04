@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Km;
 class KmController extends Controller
 {
@@ -38,7 +39,15 @@ class KmController extends Controller
     {
         //
     }
-
+    public function store2(Request $request,$id)
+    {
+        DB::table("kmtable")->insert([
+            "КодКМ" => $request->get("КодКМ"),
+            "РодКМ" => $request->get("РодКМ"),
+            "ВидКМс" => $request->get("ВидКМс")
+        ]);
+        return redirect("/km/$id")->with("status","Successfully added");
+    }
     /**
      * Display the specified resource.
      *
