@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','compositionkmst')
+@section('title','Elementdstr')
 @section('header')
 @endsection
 @section('content')
@@ -19,22 +19,28 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>КодКМ </th>
-                        <th>КодСтатСтруктуры</th>
-                        <th>КодДинСтруктуры</th>
-                        <th>КодСтруктурыУвязки</th>
+                        <th>КодСтруктуры</th>
+                        <th>КодПЗ1</th>
+                        <th>НаименованиеПЗ1</th>
+                        <th>Степеньформализации</th>
+                        <th>СтатусПЗ1</th>
+                        <th>СтруктурноеCвойствоПЗ1</th>
+                        <th>ПримечаниеПЗ1</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
-                    @if(count($compositionkmst) > 0)
-                        @foreach($compositionkmst as $key=>$compositionkms)
+                    @if(count($elementdstrs) > 0)
+                        @foreach($elementdstrs as $key=>$elementdstr)
                             <tr>
                                 <td>{{$key + 1}}</td>
-                                <td>{{$compositionkms->КодКМ}}</td>
-                                <td><a href="{{url('/structure/'.$compositionkms->КодСтатСтруктуры)}}">{{$compositionkms->КодСтатСтруктуры}}</a></td>
-                                <td><a href="{{url('/structure/'.$compositionkms->КодДинСтруктуры)}}">{{$compositionkms->КодДинСтруктуры}}</a></td>
-                                <td><a href="{{url('/structure/'.$compositionkms->КодСтруктурыУвязки)}}">{{$compositionkms->КодСтруктурыУвязки}}</a></td>
+                                <td>{{$elementdstr->Кодструктуры}}</td>
+                                <td>{{$elementdstr->КодПЗ1}}</td>
+                                <td>{{$elementdstr->НаименованиеПЗ1}}</td>
+                                <td>{{$elementdstr->Степеньформализации}}</td>
+                                <td>{{$elementdstr->СтатусПЗ1}}</td>
+                                <td>{{$elementdstr->СтруктурноеCвойствоПЗ1}}</td>
+                                <td>{{$elementdstr->ПримечаниеПЗ1}}</td>
                                 <td>
                                     <button class="btn btn-success">Edit</button>
                                     <button class="btn btn-danger">Delete</button>
@@ -43,7 +49,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="6" style="text-align:center"> There is no record</td>
+                            <td colspan="9" style="text-align:center"> There is no record</td>
                         </tr>
                     @endif
                 </tbody>

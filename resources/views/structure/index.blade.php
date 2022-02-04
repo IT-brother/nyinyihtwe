@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','compositionkmst')
+@section('title','structure')
 @section('header')
 @endsection
 @section('content')
@@ -19,22 +19,24 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>КодКМ </th>
-                        <th>КодСтатСтруктуры</th>
-                        <th>КодДинСтруктуры</th>
-                        <th>КодСтруктурыУвязки</th>
+                        <th>КодСтруктуры</th>
+                        <th>ТипСтруктуры</th>
+                        <th>РодСтруктуры</th>
+                        <th>ВидСтруктуры</th>
+                        <th>КоличествоЭлструктуры</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
-                    @if(count($compositionkmst) > 0)
-                        @foreach($compositionkmst as $key=>$compositionkms)
+                    @if(count($structures) > 0)
+                        @foreach($structures as $key=>$structure)
                             <tr>
                                 <td>{{$key + 1}}</td>
-                                <td>{{$compositionkms->КодКМ}}</td>
-                                <td><a href="{{url('/structure/'.$compositionkms->КодСтатСтруктуры)}}">{{$compositionkms->КодСтатСтруктуры}}</a></td>
-                                <td><a href="{{url('/structure/'.$compositionkms->КодДинСтруктуры)}}">{{$compositionkms->КодДинСтруктуры}}</a></td>
-                                <td><a href="{{url('/structure/'.$compositionkms->КодСтруктурыУвязки)}}">{{$compositionkms->КодСтруктурыУвязки}}</a></td>
+                                <td><a href="{{url('/elementdstr/'.$structure->КодСтруктуры)}}">{{$structure->КодСтруктуры}}</a></td>
+                                <td>{{$structure->ТипСтруктуры}}</td>
+                                <td>{{$structure->РодСтруктуры}}</td>
+                                <td>{{$structure->ВидСтруктуры}}</td>
+                                <td>{{$structure->КоличествоЭлструктуры}}</td>
                                 <td>
                                     <button class="btn btn-success">Edit</button>
                                     <button class="btn btn-danger">Delete</button>
@@ -43,7 +45,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="6" style="text-align:center"> There is no record</td>
+                            <td colspan="7" style="text-align:center"> There is no record</td>
                         </tr>
                     @endif
                 </tbody>
