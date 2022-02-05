@@ -31,8 +31,13 @@ Route::get("/km/{id}",[App\Http\Controllers\KmController::class,'index']);
 Route::post("/km/{id}",[App\Http\Controllers\KmController::class,'store2']);
 
 Route::get("/compositionkmst/{id}",[App\Http\Controllers\CompositionkmstController::class,'index']);
+Route::post("/compositionkmst/{id}",[App\Http\Controllers\CompositionkmstController::class,'store2'])->name('compositionkmst.storeData');
+
 Route::get("/structure/{id}",[App\Http\Controllers\StructureController::class,'index']);
+Route::post("/structure/{id}",[App\Http\Controllers\StructureController::class,'store2'])->name('structure.storeData');
+
 Route::get("/elementdstr/{id}",[App\Http\Controllers\ElementdstrController::class,'index']);
+Route::post("/elementdstr/{id}",[App\Http\Controllers\ElementdstrController::class,'store2'])->name('elementdstr.storeData');
 
 
 //Route::get("/diagnoses/{filename}",[App\Http\Controllers\InformationController::class,'download']);

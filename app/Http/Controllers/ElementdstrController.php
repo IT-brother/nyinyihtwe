@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Elementdstr;
+use Illuminate\Support\Facades\DB;
 class ElementdstrController extends Controller
 {
     /**
@@ -15,6 +16,20 @@ class ElementdstrController extends Controller
     {
         $elementdstrs = Elementdstr::where("Кодструктуры",$id)->get();
         return view("elementdstr.index",compact("elementdstrs"));
+    }
+
+    public function store2(Request $request,$id)
+    {
+       DB::table("elementdstr")->insert([
+            "КОДСТРУКТУРЫ" => $request->get("КОДСТРУКТУРЫ"),
+            "КОДПЗ1" => $request->get("КОДПЗ1"),
+            "НАИМЕНОВАНИЕПЗ1" => $request->get("НАИМЕНОВАНИЕПЗ1"),
+            "СТЕПЕНЬФОРМАЛИЗАЦИИ" => $request->get("СТЕПЕНЬФОРМАЛИЗАЦИИ"),
+            "СТАТУСПЗ1" => $request->get("СТАТУСПЗ1"),
+            "СТРУКТУРНОЕCВОЙСТВОПЗ1" => $request->get("СТРУКТУРНОЕCВОЙСТВОПЗ1"),
+            "ПРИМЕЧАНИЕПЗ1" => $request->get("ПРИМЕЧАНИЕПЗ1")
+        ]);
+        return redirect("/elementdstr/$id")->with("status","Successfully added Data!");
     }
 
     /**

@@ -3,17 +3,20 @@
 @section('header')
 @endsection
 @section('content')
-    <div class="col-xl-12">
-        @if(count($errors->all()) > 0)
-            <div class="alert alert-danger w-50">{{implode(",",$errors->all())}}</div>
-        @endif
-        @if(session("error"))
-            <div class="alert alert-error w-50">{{session('error')}}</div>
-        @endif
-        @if(session("status"))
-            <div class="alert alert-success w-50">{{session('status')}}</div>
-        @endif
-    </div>
+        <div class="col-xl-12 mb-2">
+            <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#structureModal">Add</button>
+        </div>
+        <div class="col-xl-12">
+            @if(count($errors->all()) > 0)
+                <div class="alert alert-danger w-50">{{implode(",",$errors->all())}}</div>
+            @endif
+            @if(session("error"))
+                <div class="alert alert-error w-50">{{session('error')}}</div>
+            @endif
+            @if(session("status"))
+                <div class="alert alert-success w-50">{{session('status')}}</div>
+            @endif
+        </div>
         <div class="col-xl-12 table-responsive p-0">
             <table id="zero_config" class="table table-striped table-bordered">
                 <thead>
@@ -50,6 +53,50 @@
                     @endif
                 </tbody>
             </table>
+        </div>
+        <!-- modals --->
+        <div class="modal fade" id="structureModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <form method="POST">
+                    @csrf
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Create New resource</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="КОДСТРУКТУРЫ">КОДСТРУКТУРЫ <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" required autocomplete="off" name="КОДСТРУКТУРЫ" id="КОДСТРУКТУРЫ">
+                            </div>
+                            <div class="form-group">
+                                <label for="ТИПСТРУКТУРЫ">ТИПСТРУКТУРЫ <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" required autocomplete="off" name="ТИПСТРУКТУРЫ" id="ТИПСТРУКТУРЫ">
+                            </div>
+                            <div class="form-group">
+                                <label for="РОДСТРУКТУРЫ">РОДСТРУКТУРЫ <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" name="РОДСТРУКТУРЫ" id="РОДСТРУКТУРЫ" required autocomplete="off" >
+                            </div>
+                            <div class="form-group">
+                                <label for="КОЛИЧЕСТВОЭЛСТРУКТУРЫ">КОЛИЧЕСТВОЭЛСТРУКТУРЫ <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" name="КОЛИЧЕСТВОЭЛСТРУКТУРЫ" id="КОЛИЧЕСТВОЭЛСТРУКТУРЫ" required autocomplete="off" >
+                            </div>
+                            <div class="form-group">
+                                <label for="ВИДСТРУКТУРЫ1">V <b class="text-danger">*</b></label>
+                                <input type="radio"  name="ВИДСТРУКТУРЫ" value="v" required autocomplete="off" id="ВИДСТРУКТУРЫ1">
+                                <label for="ВИДСТРУКТУРЫ2">C <b class="text-danger">*</b></label>
+                                <input type="radio"  name="ВИДСТРУКТУРЫ" value="c" required autocomplete="off" id="ВИДСТРУКТУРЫ2">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
 @endsection
 @section("script")

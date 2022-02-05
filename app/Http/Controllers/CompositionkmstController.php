@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Compositionkmst;
+use Illuminate\Support\Facades\DB;
 class CompositionkmstController extends Controller
 {
     /**
@@ -15,6 +16,17 @@ class CompositionkmstController extends Controller
     {
         $compositionkmst = Compositionkmst::where("КодКМ",$id)->get();
         return view("compositionkmst.index",compact("compositionkmst"));
+    }
+
+    public function store2(Request $request,$id)
+    {
+       DB::table("compositionkmst")->insert([
+            "КОДКМ" => $request->get("КОДКМ"),
+            "КОДСТАТСТРУКТУРЫ" => $request->get("КОДСТАТСТРУКТУРЫ"),
+            "КОДДИНСТРУКТУРЫ" => $request->get("КОДДИНСТРУКТУРЫ"),
+            "КОДСТРУКТУРЫУВЯЗКИ" => $request->get("КОДСТРУКТУРЫУВЯЗКИ")
+        ]);
+        return redirect("/compositionkmst/$id")->with("status","Successfully added Data!");
     }
 
     /**
