@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2022 at 10:12 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Feb 04, 2022 at 03:59 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48,8 +48,7 @@ INSERT INTO `compositionkmst` (`id`, `КодКМ`, `КодСтатСтрукту
 (6, 'КМ-Z71', 'Z71.1-c', 'Z71.3-c', 'Z71.5-c'),
 (7, 'КМ-Z53', 'Z53.1-c', 'Z53.3-c', 'Z53.5-c'),
 (8, 'КМ-Z51', 'Z51.1-c', 'Z51.3-c', 'Z51.5-c'),
-(9, 'КМ-Z41', 'Z41.1-c', 'Z41.3-c', 'Z41.5-c'),
-(10, 'ypp-2', '34ef', 'z34ypp', 'zeii');
+(9, 'КМ-Z41', 'Z41.1-c', 'Z41.3-c', 'Z41.5-c');
 
 -- --------------------------------------------------------
 
@@ -97,8 +96,7 @@ CREATE TABLE `elementdstr` (
 --
 
 INSERT INTO `elementdstr` (`idelementdstr`, `Кодструктуры`, `КодПЗ1`, `НаименованиеПЗ1`, `Степеньформализации`, `СтатусПЗ1`, `СтруктурноеCвойствоПЗ1`, `ПримечаниеПЗ1`) VALUES
-(1, 'Z8.11.3-c', 'z8.11', 'Выбор NFO в зависимости от материала и вида термообработки', 'Стат', 'Э', '-', '-'),
-(2, 'ypp', 'jh', 'erty', 'ertyu', 'ert', 'dfg', 'dfg');
+(1, 'Z8.11.3-c', 'z8.11', 'Выбор NFO в зависимости от материала и вида термообработки', 'Стат', 'Э', '-', '-');
 
 -- --------------------------------------------------------
 
@@ -173,9 +171,7 @@ INSERT INTO `kmtable` (`idkmtable`, `КодКМ`, `РодКМ`, `ВидКМс`) 
 (6, 'КМ-Z71', '1', 'c'),
 (7, 'КМ-Z53', '1', 'c'),
 (8, 'КМ-Z51', '1', 'c'),
-(9, 'КМ-Z41', '1', 'c'),
-(12, 'test', 'test32', 'v'),
-(13, 'КМ-Z8.11', 'te', 'c');
+(9, 'КМ-Z41', '1', 'c');
 
 -- --------------------------------------------------------
 
@@ -228,8 +224,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (17, '2014_10_12_100000_create_password_resets_table', 1),
 (18, '2019_08_19_000000_create_failed_jobs_table', 1),
 (19, '2020_10_12_000000_create_users_table', 1),
-(20, '2022_01_31_145636_create_project_names_table', 2),
-(21, '2022_02_04_135239_create_sessions_table', 3);
+(20, '2022_01_31_145636_create_project_names_table', 2);
 
 -- --------------------------------------------------------
 
@@ -255,9 +250,7 @@ INSERT INTO `modelzadachi` (`КодПрЗ`, `КодКМ`) VALUES
 ('ЦПсПЗ', 'КМ-Z71'),
 ('ЦПсПЗ', 'КМ-Z53'),
 ('ЦПсПЗ', 'КМ-Z51'),
-('ЦПсПЗ', 'КМ-Z41'),
-('ЦПсПЗ', 'test'),
-('ЦПсПЗ', 'aa');
+('ЦПсПЗ', 'КМ-Z41');
 
 -- --------------------------------------------------------
 
@@ -297,28 +290,6 @@ INSERT INTO `project_names` (`id`, `name`, `user_id`, `created_at`, `updated_at`
 (5, 'HELLO WORLD!', 1, '2022-01-31 08:44:34', '2022-01-31 08:44:34'),
 (6, 'how are you today?', 1, '2022-01-31 08:55:01', '2022-01-31 08:55:01'),
 (7, 'My project', 1, '2022-01-31 09:21:04', '2022-01-31 09:21:04');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `sessions`
---
-
-CREATE TABLE `sessions` (
-  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_agent` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `payload` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_activity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `sessions`
---
-
-INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('YMW8selXfliJwnGNMgzvbV78hLRbR4PEwEgbVqmj', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWFBITUdveTlMeW9HOTNmTGJXSm9ENElWTTR1aWhTNTYyYTFCeGxndyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTY6Imh0dHA6Ly9sb2NhbGhvc3QvbnlpbnlpaHR3ZS9wdWJsaWMvZWxlbWVudGRzdHIvWjguMTEuMS1jIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1644078213);
 
 -- --------------------------------------------------------
 
@@ -366,9 +337,7 @@ INSERT INTO `structure` (`idstructure`, `КодСтруктуры`, `ТипСт�
 (24, 'Z51.5-с  ', 'увязки', '1', 'c', '8'),
 (25, 'Z41.1-с  ', 'стат', '1', 'c', '1'),
 (26, 'Z41.3-с  ', 'дин', '1', 'c', '3'),
-(27, 'Z41.5-с  ', 'увязки', '1', 'c', '1'),
-(28, 'tyo', 'tyu', '5', 'c', '56'),
-(29, 'ypp', 'yep', '23', 'v', '32');
+(27, 'Z41.5-с  ', 'увязки', '1', 'c', '1');
 
 -- --------------------------------------------------------
 
@@ -388,9 +357,7 @@ CREATE TABLE `subjecttask` (
 --
 
 INSERT INTO `subjecttask` (`idsubjecttask`, `КодПрЗ`, `НаименованиеПрЗ`, `КоличествоСтатКМвПрЗ`) VALUES
-(1, 'ЦПсПЗ', 'Проектировочный расчет цилиндрических передач с прямыми зубьями', '8'),
-(2, 'hello', 'world', '2'),
-(3, 'a', '3', '2');
+(1, 'ЦПсПЗ', 'Проектировочный расчет цилиндрических передач с прямыми зубьями', '8');
 
 -- --------------------------------------------------------
 
@@ -809,14 +776,6 @@ ALTER TABLE `project_names`
   ADD KEY `project_names_user_id_foreign` (`user_id`);
 
 --
--- Indexes for table `sessions`
---
-ALTER TABLE `sessions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `sessions_user_id_index` (`user_id`),
-  ADD KEY `sessions_last_activity_index` (`last_activity`);
-
---
 -- Indexes for table `structure`
 --
 ALTER TABLE `structure`
@@ -891,13 +850,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `compositionkmst`
 --
 ALTER TABLE `compositionkmst`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `elementdstr`
---
-ALTER TABLE `elementdstr`
-  MODIFY `idelementdstr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -909,31 +862,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `kmtable`
 --
 ALTER TABLE `kmtable`
-  MODIFY `idkmtable` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idkmtable` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `project_names`
 --
 ALTER TABLE `project_names`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `structure`
---
-ALTER TABLE `structure`
-  MODIFY `idstructure` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
--- AUTO_INCREMENT for table `subjecttask`
---
-ALTER TABLE `subjecttask`
-  MODIFY `idsubjecttask` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tablef4c`
