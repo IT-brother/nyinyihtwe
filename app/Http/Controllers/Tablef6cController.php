@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tablef6c;
+//hello
 class Tablef6cController extends Controller
 {
     /**
