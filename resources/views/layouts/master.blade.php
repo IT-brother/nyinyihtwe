@@ -9,7 +9,7 @@
     <meta name="keywords" content="Nyi Project">
     <meta name="author" content="Nyi" />
     <!-- Favicon icon -->
-    <link rel="icon" href="{{asset('img/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('img/logo.png')}}" type="image/x-icon">
     <!-- vendor css -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 </head>
