@@ -33,9 +33,33 @@
                 <tbody class="bg-white">
                     @if(count($structures) > 0)
                         @foreach($structures as $key=>$structure)
+                            <?php 
+                            $last3Char = substr($structure->КодСтруктуры, -3);
+                            if($last3Char == "1-c")
+                            {
+                                $link ="/tablef1c/".$structure->КодСтруктуры;
+
+                            }else if($last3Char == "1-v")
+                            {
+                                $link ="/tablef1/".$structure->КодСтруктуры;
+
+                            }else if($last3Char == "3-c")
+                            {
+                                $link ="/tablef3c/".$structure->КодСтруктуры;
+                            }else if($last3Char == "3-v")
+                            {
+                                $link ="/tablef3/".$structure->КодСтруктуры;
+                            }else if($last3Char == "5-c")
+                            {
+                                $link ="/tablef6c/".$structure->КодСтруктуры;
+                            }else if($last3Char == "5-v")
+                            {
+                                $link ="/tablef6/".$structure->КодСтруктуры;
+                            }
+                            ?>
                             <tr>
                                 <td>{{$key + 1}}</td>
-                                <td><a href="{{url('/elementdstr/'.$structure->КодСтруктуры)}}">{{$structure->КодСтруктуры}}</a></td>
+                                <td><a href="{{url($link)}}">{{$structure->КодСтруктуры}}</a></td>
                                 <td>{{$structure->ТипСтруктуры}}</td>
                                 <td>{{$structure->РодСтруктуры}}</td>
                                 <td>{{$structure->ВидСтруктуры}}</td>

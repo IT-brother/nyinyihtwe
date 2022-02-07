@@ -38,6 +38,12 @@ Route::post("/structure/{id}",[App\Http\Controllers\StructureController::class,'
 
 Route::get("/elementdstr/{id}",[App\Http\Controllers\ElementdstrController::class,'index']);
 Route::post("/elementdstr/{id}",[App\Http\Controllers\ElementdstrController::class,'store2'])->name('elementdstr.storeData');
+Route::get("/tablef3c/{id}",[App\Http\Controllers\Tablef3cController::class,'index']);
+Route::get("/tablef1/{id}",[App\Http\Controllers\Tablef1Controller::class,'index']);
+Route::get("/tablef3/{id}",[App\Http\Controllers\Tablef3Controller::class,'index']);
+Route::get("/tablef6/{id}",[App\Http\Controllers\Tablef6Controller::class,'index']);
+Route::get("/tablef1c/{id}",[App\Http\Controllers\Tablef1cController::class,'index']);
+Route::get("/tablef6c/{id}",[App\Http\Controllers\Tablef6cController::class,'index']);
 
 
 //Route::get("/diagnoses/{filename}",[App\Http\Controllers\InformationController::class,'download']);
