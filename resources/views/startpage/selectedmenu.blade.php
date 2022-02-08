@@ -48,7 +48,7 @@
                     <div class="card card-hover">
                         <div class="p-2 bg-danger text-center">
                             <h1 class="font-light text-white"></h1>
-                            <h6 class="text-white"> Документирование моделей для всех стат. ПЗ </h6>
+                            <h6 class="text-white"><a href="{{url('/f3c')}}" class="text-white"> Документирование моделей для всех стат. ПЗ </a></h6>
                         </div>
                     </div>
                 </div>                

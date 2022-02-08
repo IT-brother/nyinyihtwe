@@ -41,9 +41,13 @@ Route::post("/elementdstr/{id}",[App\Http\Controllers\ElementdstrController::cla
 Route::get("/tablef3c/{id}",[App\Http\Controllers\Tablef3cController::class,'index']);
 Route::get("/tablef1/{id}",[App\Http\Controllers\Tablef1Controller::class,'index']);
 Route::get("/tablef3/{id}",[App\Http\Controllers\Tablef3Controller::class,'index']);
+Route::post("/tablef3c/{id}",[App\Http\Controllers\Tablef3cController::class,'store']);
+
 Route::get("/tablef6/{id}",[App\Http\Controllers\Tablef6Controller::class,'index']);
 Route::get("/tablef1c/{id}",[App\Http\Controllers\Tablef1cController::class,'index']);
 Route::get("/tablef6c/{id}",[App\Http\Controllers\Tablef6cController::class,'index']);
+Route::get("/f3c",[App\Http\Controllers\Tablef3cController::class,'show']);
+Route::get("/f3",[App\Http\Controllers\Tablef3Controller::class,'f3show']);
 
 
 //Route::get("/diagnoses/{filename}",[App\Http\Controllers\InformationController::class,'download']);

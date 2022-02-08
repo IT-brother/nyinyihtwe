@@ -164,6 +164,7 @@
         <!-- [ breadcrumb ] start -->
         <div class="page-header">
 			<div class="row">
+				
 				@yield("header")
 			</div>
         </div>
