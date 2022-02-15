@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Elementdstr')
+@section('title','TableF3c')
 @section('header')
 @endsection
 @section('content')

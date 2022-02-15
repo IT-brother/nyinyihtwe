@@ -1,11 +1,25 @@
 @extends('layouts.master')
 @section('title','Tablef3')
 @section('header')
+<style type="text/css">
+    table {
+            border-spacing: 0px;
+            table-layout: fixed;
+            margin-left: auto;
+            margin-right: auto;
+        }
+       
+        td {
+            -ms-word-break: break-all !important;
+            word-break: break-all !important;
+            word-break: break-word !important;
+        }
+</style>
 @endsection
 @section('content')
-        <!-- <div class="col-xl-12 mb-2">
-            <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#elementdstrModal">Add</button>
-        </div> -->
+        <div class="col-xl-12 mb-2">
+            <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#tableF3Modal">Add</button>
+        </div>
         <div class="col-xl-12">
             @if(count($errors->all()) > 0)
                 <div class="alert alert-danger w-50">{{implode(",",$errors->all())}}</div>
@@ -24,7 +38,7 @@
                         <th>#</th>
                         <th>Кодструктуры</th>
                         <th>КодПЗ1</th>
-                        <th>НаименованиеПЗ</th>
+                        <th style="width:250px;max-width:250px !important;">НаименованиеПЗ</th>
                         <th>Степеньформализации</th>
                         <th>СтатусПЗ1</th>
                         <th>СтруктурноеСвойствоПЗ1</th>
@@ -38,8 +52,8 @@
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>{{$tablef3->Кодструктуры}}</td>
-                                <td>{{$tablef3->КодПЗ1}}</td>
-                                <td>{{$tablef3->НаименованиеПЗ}}</td>
+                                <td><a href="#" data-toggle="modal" data-target="#codepzModal" class="codepz">{{$tablef3->КодПЗ1}}</a></td>
+                                <td style="width:250px;max-width:250px !important;">{{$tablef3->НаименованиеПЗ}}</td>
                                 <td>{{$tablef3->Степеньформализации}}</td>
                                 <td>{{$tablef3->СтатусПЗ1}}</td>
                                 <td>{{$tablef3->СтруктурноеСвойствоПЗ1}}</td>
@@ -58,11 +72,9 @@
                 </tbody>
             </table>
         </div>
-
-        <!-- modals --->
-        <div class="modal fade" id="elementdstrModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="tableF3Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <form method="POST">
+                <form method="POST" id="tablef3Form">
                     @csrf
                     <div class="modal-content">
                         <div class="modal-header">
@@ -81,25 +93,48 @@
                                 <input type="text" class="form-control" required autocomplete="off" name="КОДПЗ1" id="КОДПЗ1">
                             </div>
                             <div class="form-group">
-                                <label for="НАИМЕНОВАНИЕПЗ1">НАИМЕНОВАНИЕПЗ1 <b class="text-danger">*</b></label>
-                                <input type="text" class="form-control" name="НАИМЕНОВАНИЕПЗ1" id="НАИМЕНОВАНИЕПЗ1" required autocomplete="off" >
+                                <label for="НаименованиеПЗ">НаименованиеПЗ <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" name="НаименованиеПЗ" id="НаименованиеПЗ" required autocomplete="off" >
                             </div>
                             <div class="form-group">
-                                <label for="СТЕПЕНЬФОРМАЛИЗАЦИИ">СТЕПЕНЬФОРМАЛИЗАЦИИ <b class="text-danger">*</b></label>
-                                <input type="text" class="form-control" name="СТЕПЕНЬФОРМАЛИЗАЦИИ" id="СТЕПЕНЬФОРМАЛИЗАЦИИ" required autocomplete="off" >
+                                <label for="Степеньформализации">Степеньформализации <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" name="Степеньформализации" id="Степеньформализации" required autocomplete="off" >
                             </div>
                             <div class="form-group">
-                                <label for="СТАТУСПЗ1">СТАТУСПЗ1 <b class="text-danger">*</b></label>
-                                <input type="text" class="form-control" name="СТАТУСПЗ1" id="СТАТУСПЗ1" required autocomplete="off" >
+                                <label for="СтатусПЗ1">СтатусПЗ1 <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" name="СтатусПЗ1" id="СтатусПЗ1" required autocomplete="off" >
                             </div>
                             <div class="form-group">
-                                <label for="СТРУКТУРНОЕCВОЙСТВОПЗ1">СТРУКТУРНОЕCВОЙСТВОПЗ1 <b class="text-danger">*</b></label>
-                                <input type="text" class="form-control" name="СТРУКТУРНОЕCВОЙСТВОПЗ1" id="СТРУКТУРНОЕCВОЙСТВОПЗ1" required autocomplete="off" >
+                                <label for="СтруктурноеСвойствоПЗ1">СтруктурноеСвойствоПЗ1 <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" name="СтруктурноеСвойствоПЗ1" id="СтруктурноеСвойствоПЗ1" required autocomplete="off" >
                             </div>
                             <div class="form-group">
-                                <label for="ПРИМЕЧАНИЕПЗ1">ПРИМЕЧАНИЕПЗ1 <b class="text-danger">*</b></label>
-                                <input type="text" class="form-control" name="ПРИМЕЧАНИЕПЗ1" id="ПРИМЕЧАНИЕПЗ1" required autocomplete="off" >
+                                <label for="ПримечаниеПЗ1">ПримечаниеПЗ1 <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" name="ПримечаниеПЗ1" id="ПримечаниеПЗ1" required autocomplete="off" >
                             </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal fade" id="codepzModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <form method="POST">
+                    @csrf
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Добавление КодПЗ1 из таблицы F3</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <center><p class="clickedTxt"></p></center>
+                            <input type="hidden" class="myTxt" name="codepz">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -111,5 +146,36 @@
         </div>
 @endsection
 @section("script")
-
+<script>
+  $(document).ready(function(){
+    var baseUrl = '{{url('')}}'
+    $(document).on("click",".codepz",function(){
+        //alert($(this).text());
+        $(".clickedTxt").text($(this).text());
+        $(".myTxt").val($(this).text());
+    });
+    $(document).on("submit","#tablef3Form",function(ev){
+        ev.preventDefault();
+            var formdata = new FormData(this);
+            $.ajax({
+                url: baseUrl+'/tablef3/create',
+                type: "POST",
+                data: formdata,
+                cache:false,
+                contentType:false,
+                processData:false,
+                success: function(response) {
+                    if(response.status == true)
+                    {
+                        //window.location.reload();
+                        alert("Successfully deleted!");
+                    }else
+                    {
+                        alert("Fail");
+                    }
+                }
+            });
+     });
+  });
+</script>
 @endsection

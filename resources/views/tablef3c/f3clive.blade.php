@@ -1,10 +1,13 @@
 @extends('layouts.master')
-@section('title','Tablef6')
+@section('title','F3c')
 @section('header')
 @endsection
 @section('content')
         <!-- <div class="col-xl-12 mb-2">
             <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#elementdstrModal">Add</button>
+        </div> -->
+        <!-- <div class="col-xl-12">
+            <a href="{{url('f3c')}}" class="text-white">F3c</a> | <a href="{{url('f3')}}" class="text-white">F3</a>
         </div> -->
         <div class="col-xl-12">
             @if(count($errors->all()) > 0)
@@ -17,35 +20,34 @@
                 <div class="alert alert-success w-50">{{session('status')}}</div>
             @endif
         </div>
+
         <div class="col-xl-12 table-responsive p-0">
             <table id="zero_config" class="table table-striped table-bordered">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Кодструктуры</th>
+                        <th>КодСтруктуры</th>
                         <th>КодПЗ1</th>
-                        <th>СтруктурноеСвойствоПЗ1</th>
-                        <th>КодПК</th>
-                        <th>РольПК</th>
-                        <th>СтруктурноеСвойствоПК</th>
-                        <th>ОбъемноеСвойствоПК</th>
-                        <th>ОсобаяРольПК</th>
+                        <th>НаименованиеПЗ1</th>
+                        <th>Степеньформализации</th>
+                        <th>СтатусПЗ1</th>
+                        <th>СтруктурноеCвойствоПЗ1</th>
+                        <th>ПримечаниеПЗ1</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
-                    @if(count($tablef6s) > 0)
-                        @foreach($tablef6s as $key=>$tablef6)
+                    @if(count($elementdstrs) > 0)
+                        @foreach($elementdstrs as $key=>$elementdstr)
                             <tr>
                                 <td>{{$key + 1}}</td>
-                                <td>{{$tablef6->Кодструктуры}}</td>
-                                <td><a href="{{url('/f6c/'.$tablef6->КодПЗ1)}}">{{$tablef6->КодПЗ1}}</a></td>
-                                <td>{{$tablef6->СтруктурноеСвойствоПЗ1}}</td>
-                                <td>{{$tablef6->КодПК}}</td>
-                                <td>{{$tablef6->РольПК}}</td>
-                                <td>{{$tablef6->СтруктурноеСвойствоПК}}</td>
-                                <td>{{$tablef6->ОбъемноеСвойствоПК}}</td>
-                                <td>{{$tablef6->ОсобаяРольПК}}</td>
+                                <td>{{$elementdstr->Кодструктуры}}</td>
+                                <td><a href="{{url('/f6/'.$elementdstr->КодПЗ1)}}">{{$elementdstr->КодПЗ1}}</a></td>
+                                <td>{{$elementdstr->НаименованиеПЗ1}}</td>
+                                <td>{{$elementdstr->Степеньформализации}}</td>
+                                <td>{{$elementdstr->СтатусПЗ1}}</td>
+                                <td>{{$elementdstr->СтруктурноеCвойствоПЗ1}}</td>
+                                <td>{{$elementdstr->ПримечаниеПЗ1}}</td>
                                 <td>
                                     <button class="btn btn-success">Edit</button>
                                     <button class="btn btn-danger">Delete</button>
@@ -54,7 +56,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="10" style="text-align:center"> There is no record</td>
+                            <td colspan="9" style="text-align:center"> There is no record</td>
                         </tr>
                     @endif
                 </tbody>

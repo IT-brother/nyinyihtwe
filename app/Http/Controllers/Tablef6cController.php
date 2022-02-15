@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Tablef6c;
 //hello
 class Tablef6cController extends Controller
@@ -17,7 +18,11 @@ class Tablef6cController extends Controller
         $tablef6s = Tablef6c::where("Кодструктуры",$id)->get();
         return view("tablef6c.index",compact("tablef6s"));
     }
-
+    public function f6c($id)
+    {
+        $tablef6s = Tablef6c::where("КодПЗ1",$id)->get();
+        return view("tablef6c.index",compact("tablef6s"));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -38,7 +43,20 @@ class Tablef6cController extends Controller
     {
         //
     }
-
+    public function f6cStore(Request $request,$id)
+    {
+        DB::table("tablef6c")->insert([
+            "Кодструктуры" => $request->get("Кодструктуры"),
+            "КодПЗ1"   => $request->get("КодПЗ1"),
+            "СтруктурноеСвойствоПЗ1" => $request->get("СтруктурноеСвойствоПЗ1"),
+            "КодПК"  => $request->get("КодПК"),
+            "РольПК" => $request->get("РольПК"),
+            "СтруктурноеСвойствоПК" => $request->get("СтруктурноеСвойствоПК"),
+            "ОбъемноеСвойствоПК" => $request->get("ОбъемноеСвойствоПК"),
+            "ОсобаяРольПК"  => $request->get("ОсобаяРольПК")
+        ]);
+        return redirect("/f6c/$id")->with("status","Successfully added");
+    }
     /**
      * Display the specified resource.
      *

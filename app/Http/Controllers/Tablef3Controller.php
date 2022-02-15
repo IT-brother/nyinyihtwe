@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Tablef3;
+use App\Models\Codepz;
 class Tablef3Controller extends Controller
 {
     /**
@@ -13,13 +16,14 @@ class Tablef3Controller extends Controller
      */
     public function index($id)
     {
-        $tablef3s = Tablef3::where("Кодструктуры",$id)->get();
+        //$tablef3s = Tablef3::where("Кодструктуры",$id)->get();
+        $tablef3s = DB::table("tablef3")->get();
         return view("tablef3.index",compact("tablef3s"));
     }
     public function f3show()
     {
         $tablef3s = Tablef3::all();
-        return view("tablef3.f3",compact("tablef3s"));
+        return view("tablef3.index",compact("tablef3s"));
     }
     /**
      * Show the form for creating a new resource.
@@ -39,9 +43,17 @@ class Tablef3Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $code =$request->get("codepz");
+        DB::table("codepz")->insert([
+            "КодПЗ1" => $code
+        ]);
+        //$codepzs = Codepz::all();
+        return redirect("/codepz")->with("status","Successfully added");
     }
-
+    public function f3create(Request $request)
+    {
+        return $request->all();
+    }
     /**
      * Display the specified resource.
      *

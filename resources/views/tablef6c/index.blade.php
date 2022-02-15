@@ -3,9 +3,7 @@
 @section('header')
 @endsection
 @section('content')
-        <!-- <div class="col-xl-12 mb-2">
-            <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#elementdstrModal">Add</button>
-        </div> -->
+        
         <div class="col-xl-12">
             @if(count($errors->all()) > 0)
                 <div class="alert alert-danger w-50">{{implode(",",$errors->all())}}</div>
@@ -16,6 +14,9 @@
             @if(session("status"))
                 <div class="alert alert-success w-50">{{session('status')}}</div>
             @endif
+        </div>
+        <div class="col-xl-12 mb-2">
+            <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#f6cModal">Add</button>
         </div>
         <div class="col-xl-12 table-responsive p-0">
             <table id="zero_config" class="table table-striped table-bordered">
@@ -41,7 +42,7 @@
                                 <td>{{$tablef6->Кодструктуры}}</td>
                                 <td>{{$tablef6->КодПЗ1}}</td>
                                 <td>{{$tablef6->СтруктурноеСвойствоПЗ1}}</td>
-                                <td>{{$tablef6->КодПК}}</td>
+                                <td><a href="{{url('/f1/'.$tablef6->КодПК)}}">{{$tablef6->КодПК}}</a></td>
                                 <td>{{$tablef6->РольПК}}</td>
                                 <td>{{$tablef6->СтруктурноеСвойствоПК}}</td>
                                 <td>{{$tablef6->ОбъемноеСвойствоПК}}</td>
@@ -62,7 +63,7 @@
         </div>
 
         <!-- modals --->
-        <div class="modal fade" id="elementdstrModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="f6cModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <form method="POST">
                     @csrf
@@ -75,32 +76,36 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="КОДСТРУКТУРЫ">КОДСТРУКТУРЫ <b class="text-danger">*</b></label>
-                                <input type="text" class="form-control" required autocomplete="off" name="КОДСТРУКТУРЫ" id="КОДСТРУКТУРЫ">
+                                <label for="Кодструктуры">КОДСТРУКТУРЫ <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" required autocomplete="off" name="Кодструктуры" id="Кодструктуры">
                             </div>
                             <div class="form-group">
-                                <label for="КОДПЗ1">КОДПЗ1 <b class="text-danger">*</b></label>
-                                <input type="text" class="form-control" required autocomplete="off" name="КОДПЗ1" id="КОДПЗ1">
+                                <label for="КОДПЗ1">КодПЗ1 <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" required autocomplete="off" name="КодПЗ1" id="КодПЗ1">
                             </div>
                             <div class="form-group">
-                                <label for="НАИМЕНОВАНИЕПЗ1">НАИМЕНОВАНИЕПЗ1 <b class="text-danger">*</b></label>
-                                <input type="text" class="form-control" name="НАИМЕНОВАНИЕПЗ1" id="НАИМЕНОВАНИЕПЗ1" required autocomplete="off" >
+                                <label for="СтруктурноеСвойствоПЗ1">СтруктурноеСвойствоПЗ1 <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" name="СтруктурноеСвойствоПЗ1" id="СтруктурноеСвойствоПЗ1" required autocomplete="off" >
                             </div>
                             <div class="form-group">
-                                <label for="СТЕПЕНЬФОРМАЛИЗАЦИИ">СТЕПЕНЬФОРМАЛИЗАЦИИ <b class="text-danger">*</b></label>
-                                <input type="text" class="form-control" name="СТЕПЕНЬФОРМАЛИЗАЦИИ" id="СТЕПЕНЬФОРМАЛИЗАЦИИ" required autocomplete="off" >
+                                <label for="КодПК">КодПК <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" name="КодПК" id="КодПК" required autocomplete="off" >
                             </div>
                             <div class="form-group">
-                                <label for="СТАТУСПЗ1">СТАТУСПЗ1 <b class="text-danger">*</b></label>
-                                <input type="text" class="form-control" name="СТАТУСПЗ1" id="СТАТУСПЗ1" required autocomplete="off" >
+                                <label for="РольПК">РольПК <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" name="РольПК" id="РольПК" required autocomplete="off" >
                             </div>
                             <div class="form-group">
-                                <label for="СТРУКТУРНОЕCВОЙСТВОПЗ1">СТРУКТУРНОЕCВОЙСТВОПЗ1 <b class="text-danger">*</b></label>
-                                <input type="text" class="form-control" name="СТРУКТУРНОЕCВОЙСТВОПЗ1" id="СТРУКТУРНОЕCВОЙСТВОПЗ1" required autocomplete="off" >
+                                <label for="СтруктурноеСвойствоПК">СтруктурноеСвойствоПК <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" name="СтруктурноеСвойствоПК" id="СтруктурноеСвойствоПК" required autocomplete="off" >
                             </div>
                             <div class="form-group">
-                                <label for="ПРИМЕЧАНИЕПЗ1">ПРИМЕЧАНИЕПЗ1 <b class="text-danger">*</b></label>
-                                <input type="text" class="form-control" name="ПРИМЕЧАНИЕПЗ1" id="ПРИМЕЧАНИЕПЗ1" required autocomplete="off" >
+                                <label for="ОбъемноеСвойствоПК">ОбъемноеСвойствоПК <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" name="ОбъемноеСвойствоПК" id="ОбъемноеСвойствоПК" required autocomplete="off" >
+                            </div>
+                            <div class="form-group">
+                                <label for="ОсобаяРольПК">ОсобаяРольПК <b class="text-danger">*</b></label>
+                                <input type="text" class="form-control" name="ОсобаяРольПК" id="ОсобаяРольПК" required autocomplete="off" >
                             </div>
                         </div>
                         <div class="modal-footer">

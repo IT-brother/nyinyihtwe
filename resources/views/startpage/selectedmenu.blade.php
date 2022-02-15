@@ -21,7 +21,7 @@
                     <div class="card card-hover">
                         <div class="p-2 bg-info text-center">
                             <h1 class="font-light text-white"></h1>
-                            <h6 class="text-white"> Определение содержания для упорядоченного множества стаистических ПЗ 1-го рода</h6>
+                            <h6 class="text-white"><a href="{{url('/f3c2')}}" class="text-white"> Определение содержания для упорядоченного множества стаистических ПЗ 1-го рода</a></h6>
                         </div>
                     </div>
                 </div>

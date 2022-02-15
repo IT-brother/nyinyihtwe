@@ -3,24 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Tablef1;
-class Tablef1Controller extends Controller
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\DB;
+use App\Models\Codepz;
+class CodepzController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index(Request $request)
     {
-        $tablef1s = Tablef1::where("Кодструктуры",$id)->get();
-        return view("tablef1.index",compact("tablef1s"));
+        if($request->get("sort") =="desc")
+        {
+            $codepzs = DB::table("codepz")->orderBy("КодПЗ1","DESC")->get();
+        }else if($request->get("sort") =="asc")
+        {
+            $codepzs = DB::table("codepz")->orderBy("КодПЗ1","ASC")->get();
+        }else
+        {
+            $codepzs = DB::table("codepz")->get();
+        }
+        
+        return view("codepz.index",compact("codepzs"));
     }
-    public function f1($id)
-    {
-        $tablef1s = Tablef1::where("КодПК",$id)->get();
-        return view("tablef1.index",compact("tablef1s"));
-    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -84,6 +92,13 @@ class Tablef1Controller extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $id;
+    }
+    public function delete($id)
+    {
+        Codepz::find($id)->delete();
+        return Response::json([
+            "status" => true,
+        ]);
     }
 }

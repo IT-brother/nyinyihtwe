@@ -15,9 +15,13 @@ class Tablef3cController extends Controller
     public function index($id)
     {
         $elementdstrs = Tablef3c::where("Кодструктуры",$id)->get();
-        return view("elementdstr.index",compact("elementdstrs"));
+        return view("tablef3c.index",compact("elementdstrs"));
     }
-
+    public function codepz_tablef3c($id)
+    {
+         $elementdstrs = DB::table("tablef3c")->where("КодПЗ1",$id)->get();;
+        return view("tablef3c.index",compact("elementdstrs"));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +31,11 @@ class Tablef3cController extends Controller
     {
         
     }
-
+    public function f3c2()
+    {
+        $elementdstrs = Tablef3c::all();
+        return view("tablef3c.f3clive",compact("elementdstrs"));
+    }
     /**
      * Store a newly created resource in storage.
      *
