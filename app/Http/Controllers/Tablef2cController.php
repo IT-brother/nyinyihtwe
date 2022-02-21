@@ -3,35 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Models\Tablef1;
-use App\Models\Tablef1c;
-class Tablef1Controller extends Controller
+use App\Models\Tablef2c;
+class Tablef2cController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        $tablef1s = Tablef1::where("Кодструктуры",$id)->get();
-        return view("tablef1.index",compact("tablef1s"));
+        //
     }
-    public function f1(Request $request,$id)
+    public function f2cDoc()
     {
-        
-        $tablef1s = Tablef1::where("КодПК",$id)->get();
-         $tablef1c = DB::table("tablef1c")->select("Кодструктуры")->groupBy("Кодструктуры")->get();
-        // $tablef1cPK = DB::table("tablef1c")->select("КодПК")->groupBy("КодПК")->get();
-        $tablef1c2 = Tablef1c::where("КодПК",$id)->where("Кодструктуры",$request->get("Кодструктуры"))->get();
-
-        return view("tablef1.index",compact("tablef1s","tablef1c","tablef1c2"));
-    }
-    public function f1Doc()
-    {
-        $tablef1s = Tablef1::all();
-        return view("tablef1.f1doc",compact("tablef1s"));
+        $tablef2 = Tablef2c::all();
+        return view("tablef2c.f2cdoc",compact("tablef2"));
     }
     /**
      * Show the form for creating a new resource.

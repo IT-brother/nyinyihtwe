@@ -30,7 +30,7 @@
                     <div class="card card-hover">
                         <div class="p-2 bg-success text-center">
                             <h1 class="font-light text-white"></h1>
-                            <h6 class="text-white"> Формирование  концептуальных структур для всех статистических ПЗ-1-го рода</h6>
+                            <h6 class="text-white"><a href="{{url('/f2')}}">Формирование  концептуальных структур для всех статистических ПЗ-1-го рода</a></h6>
                         </div>
                     </div>
                 </div>

@@ -24,13 +24,13 @@
                         <th>#</th>
                         <th>Кодструктуры</th>
                         <th>КодПЗ1</th>
-                        <th>СтруктурноеСвойствоПЗ1</th>
+                        <!-- <th>СтруктурноеСвойствоПЗ1</th> -->
                         <th>КодПК</th>
-                        <th>РольПК</th>
+                        <!-- <th>РольПК</th>
                         <th>СтруктурноеСвойствоПК</th>
                         <th>ОбъемноеСвойствоПК</th>
-                        <th>ОсобаяРольПК</th>
-                        <th>Action</th>
+                        <th>ОсобаяРольПК</th> -->
+                        <!-- <th>Action</th> -->
                     </tr>
                 </thead>
                 <tbody class="bg-white">
@@ -39,22 +39,22 @@
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>{{$tablef6->Кодструктуры}}</td>
-                                <td><a href="{{url('/f6c/'.$tablef6->КодПЗ1.'/'.$tablef6->КодПК)}}">{{$tablef6->КодПЗ1}}</a></td>
-                                <td>{{$tablef6->СтруктурноеСвойствоПЗ1}}</td>
-                                <td>{{$tablef6->КодПК}}</td>
-                                <td>{{$tablef6->РольПК}}</td>
+                                <td><a href="{{url('/f6c/'.$tablef6->КодПЗ1)}}">{{$tablef6->КодПЗ1}}</a></td>
+                                <!-- <td>{{$tablef6->СтруктурноеСвойствоПЗ1}}</td> -->
+                                <td><a href="{{url('/f6row/'.$tablef6->idtablef6)}}">{{$tablef6->КодПК}}</a></td>
+                                <!-- <td>{{$tablef6->РольПК}}</td>
                                 <td>{{$tablef6->СтруктурноеСвойствоПК}}</td>
                                 <td>{{$tablef6->ОбъемноеСвойствоПК}}</td>
                                 <td>{{$tablef6->ОсобаяРольПК}}</td>
                                 <td>
                                     <button class="btn btn-success">Edit</button>
                                     <button class="btn btn-danger">Delete</button>
-                                </td>
+                                </td> -->
                             </tr>
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="10" style="text-align:center"> There is no record</td>
+                            <td colspan="4" style="text-align:center"> There is no record</td>
                         </tr>
                     @endif
                 </tbody>

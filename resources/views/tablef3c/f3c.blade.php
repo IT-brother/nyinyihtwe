@@ -7,7 +7,16 @@
             <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#elementdstrModal">Add</button>
         </div> -->
         <div class="col-xl-12">
-            <a href="{{url('f3c')}}" class="text-white">F3c</a> | <a href="{{url('f3')}}" class="text-white">F3</a>
+            <a href="{{url('f1doc')}}" class="text-white">F1</a> |
+            <a href="{{url('f1cdoc')}}" class="text-white">F1c</a> |
+            <a href="{{url('f2doc')}}" class="text-white">F2</a> |
+            <a href="{{url('f2cdoc')}}" class="text-white">F2c</a> |
+            <a href="{{url('f3c')}}" class="text-white">F3c</a> |
+             <a href="{{url('f3')}}" class="text-white">F3</a> |
+             <a href="{{url('f4')}}" class="text-white">F4</a> |
+             <a href="{{url('f4c')}}" class="text-white">F4c</a> |
+             <a href="{{url('f6')}}" class="text-white">F6</a> |
+             <a href="{{url('f6c')}}" class="text-white">F6c</a> |
         </div>
         <div class="col-xl-12">
             @if(count($errors->all()) > 0)

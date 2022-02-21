@@ -23,7 +23,7 @@ class Tablef3Controller extends Controller
     public function f3show()
     {
         $tablef3s = Tablef3::all();
-        return view("tablef3.index",compact("tablef3s"));
+        return view("tablef3.f3",compact("tablef3s"));
     }
     /**
      * Show the form for creating a new resource.

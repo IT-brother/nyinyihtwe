@@ -20,7 +20,6 @@
                 <div class="alert alert-success w-50">{{session('status')}}</div>
             @endif
         </div>
-
         <div class="col-xl-12 table-responsive p-0">
             <table id="zero_config" class="table table-striped table-bordered">
                 <thead>
@@ -41,8 +40,8 @@
                         @foreach($elementdstrs as $key=>$elementdstr)
                             <tr>
                                 <td>{{$key + 1}}</td>
-                                <td>{{$elementdstr->Кодструктуры}}</td>
-                                <td><a href="{{url('/f6/'.$elementdstr->КодПЗ1)}}">{{$elementdstr->КодПЗ1}}</a></td>
+                                <td><a href="{{url('/compositionkmst2/'.$elementdstr->Кодструктуры)}}">{{$elementdstr->Кодструктуры}}</a></td>
+                                <td><a href="{{url('/codepk/'.$elementdstr->КодПЗ1)}}">{{$elementdstr->КодПЗ1}}</a></td>
                                 <td>{{$elementdstr->НаименованиеПЗ1}}</td>
                                 <td>{{$elementdstr->Степеньформализации}}</td>
                                 <td>{{$elementdstr->СтатусПЗ1}}</td>

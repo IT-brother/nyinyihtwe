@@ -3,9 +3,9 @@
 @section('header')
 @endsection
 @section('content')
-        <!-- <div class="col-xl-12 mb-2">
-            <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#elementdstrModal">Add</button>
-        </div> -->
+        <div class="col-xl-12 mb-2">
+            <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#f1cModal">Add</button>
+        </div>
         <div class="col-xl-12">
             @if(count($errors->all()) > 0)
                 <div class="alert alert-danger w-50">{{implode(",",$errors->all())}}</div>
@@ -60,6 +60,7 @@
                 </tbody>
             </table>
         </div>
+
         <!-- modals --->
         <div class="modal fade" id="f1cModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">

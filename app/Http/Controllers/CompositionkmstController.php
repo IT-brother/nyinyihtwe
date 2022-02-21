@@ -17,7 +17,14 @@ class CompositionkmstController extends Controller
         $compositionkmst = Compositionkmst::where("КодКМ",$id)->get();
         return view("compositionkmst.index",compact("compositionkmst"));
     }
-
+    public function index2($id)
+    {
+        $compositionkmst = Compositionkmst::where("КодСтатСтруктуры",$id)
+        ->orWhere("КодДинСтруктуры",$id)
+        ->orWhere("КодСтруктурыУвязки",$id)
+        ->get();
+        return view("compositionkmst.index",compact("compositionkmst"));
+    }
     public function store2(Request $request,$id)
     {
        DB::table("compositionkmst")->insert([

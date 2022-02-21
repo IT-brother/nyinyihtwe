@@ -9,4 +9,5 @@ class Tablef1c extends Model
 {
     use HasFactory;
     protected $table= "tablef1c";
+    protected $fillable=["Кодструктуры", "КодПК", "НаименованиеПК", "КлассПК", "ТипПК", "СтатусПК", "ОценкаПК", "ПримечаниекПК"];
 }

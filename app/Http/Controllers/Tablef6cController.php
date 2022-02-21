@@ -18,9 +18,9 @@ class Tablef6cController extends Controller
         $tablef6s = Tablef6c::where("Кодструктуры",$id)->get();
         return view("tablef6c.index",compact("tablef6s"));
     }
-    public function f6c($id)
+    public function f6c($id,$id2)
     {
-        $tablef6s = Tablef6c::where("КодПЗ1",$id)->get();
+        $tablef6s = Tablef6c::where("КодПЗ1",$id)->where("КодПК",$id2)->get();
         return view("tablef6c.index",compact("tablef6s"));
     }
     /**

@@ -58,9 +58,24 @@ Route::get("/codepz_tablef3c/{id}",[App\Http\Controllers\Tablef3cController::cla
 Route::post("/codepz_tablef3c/{id}",[App\Http\Controllers\Tablef3cController::class,'store']);
 
 Route::get("/f3c2",[App\Http\Controllers\Tablef3cController::class,'f3c2']);
-Route::get("/f6/{id}",[App\Http\Controllers\Tablef6Controller::class,'f6']);
-Route::get("/f6c/{id}",[App\Http\Controllers\Tablef6cController::class,'f6c']);
+Route::get("/codepk/{id}",[App\Http\Controllers\Tablef6Controller::class,'f6']);
+Route::get("/f6c/{id}/{id2}",[App\Http\Controllers\Tablef6cController::class,'f6c']);
 Route::post("/f6c/{id}",[App\Http\Controllers\Tablef6cController::class,'f6cStore']);
 Route::get("/f1/{id}",[App\Http\Controllers\Tablef1Controller::class,'f1']);
+Route::post("/f1/{id}",[App\Http\Controllers\Tablef1cController::class,'f1cStore']);
+Route::get("/compositionkmst2/{id}",[App\Http\Controllers\CompositionkmstController::class,'index2']);
+Route::post("/compositionkmst2/{id}",[App\Http\Controllers\CompositionkmstController::class,'store2'])->name('compositionkmst.storeData');
+Route::get("/f6row/{id}",[App\Http\Controllers\Tablef6Controller::class,'f6row']);
+Route::get("/f1doc",[App\Http\Controllers\Tablef1Controller::class,'f1Doc']);
+Route::get("/f1cdoc",[App\Http\Controllers\Tablef1cController::class,'f1cDoc']);
+Route::get("/f2doc",[App\Http\Controllers\Tablef2Controller::class,'f2Doc']);
+Route::get("/f2cdoc",[App\Http\Controllers\Tablef2cController::class,'f2cDoc']);
+
+
+Route::get("/f2",[App\Http\Controllers\Tablef2Controller::class,'f2']);
+Route::get("/f2search",[App\Http\Controllers\Tablef2Controller::class,'f2Search']);
+
+//Route::get("/f1c2/{id?}/{id2?}",[App\Http\Controllers\Tablef1cController::class,'f1c2']);
+//Route::post("/f1c2/{id?}/{id2?}",[App\Http\Controllers\Tablef1cController::class,'f1c2Store']);
 
 //Route::get("/diagnoses/{filename}",[App\Http\Controllers\InformationController::class,'download']);

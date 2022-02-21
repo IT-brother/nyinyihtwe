@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Tablef1c;
 class Tablef1cController extends Controller
 {
@@ -16,7 +17,31 @@ class Tablef1cController extends Controller
         $tablef1s = Tablef1c::where("Кодструктуры",$id)->get();
         return view("tablef1c.index",compact("tablef1s"));
     }
-
+    public function f1cDoc()
+    {
+        $tablef1s = Tablef1c::all();
+        return view("tablef1c.f1cdoc",compact("tablef1s"));
+    }
+    public function f1c2(Request $request)
+    {
+        //return $request->all();
+        $tablef1s = Tablef1c::where("КодПК",$request->get("КодПК"))->where("Кодструктуры",$request->get("Кодструктуры"))->get();
+        return view("tablef1c.f1c2",compact("tablef1s"));
+    }
+    public function f1cStore(Request $request)
+    {
+        DB::table("tablef1c")->insert([
+            "Кодструктуры" => $request->get("Кодструктуры"),
+            "КодПК"   => $request->get("КодПК"),
+            "НаименованиеПК" => $request->get("НаименованиеПК"),
+            "КлассПК" => $request->get("КлассПК"),
+            "ТипПК" => $request->get("ТипПК"),
+            "СтатусПК" => $request->get("СтатусПК"),
+            "ОценкаПК" => $request->get("ОценкаПК"),
+            "ПримечаниекПК" => $request->get("ПримечаниекПК")
+        ]);
+        return redirect("/f1/".$request->get('КодПК').'?Кодструктуры='.$request->get('Кодструктуры'))->with("status","Successfully inserted");
+    }
     /**
      * Show the form for creating a new resource.
      *

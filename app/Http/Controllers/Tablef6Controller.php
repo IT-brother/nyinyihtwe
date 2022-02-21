@@ -19,9 +19,13 @@ class Tablef6Controller extends Controller
     public function f6($id)
     {
         $tablef6s = Tablef6::where("КодПЗ1",$id)->get();
-        return view("tablef6.index",compact("tablef6s"));
+        return view("tablef6.f6",compact("tablef6s"));
     }
-
+    public function f6row($id)
+    {
+        $tablef6s = Tablef6::where("idtablef6",$id)->get();
+        return view("tablef6.index",compact("tablef6s")); 
+    }
     /**
      * Show the form for creating a new resource.
      *
