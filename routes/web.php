@@ -117,6 +117,7 @@ Route::get("/tablef2/{id}",[App\Http\Controllers\Tablef2Controller::class,'index
 
 Route::get("/selectmenu2",[App\Http\Controllers\StartPageController::class,'show2']);
 Route::get("/start2",[App\Http\Controllers\StartPageController::class,'index2']);
+Route::post("/start2",[App\Http\Controllers\StartPageController::class,'store']);
 Route::get("/subjecttask2",[App\Http\Controllers\SubjectTaskController::class,'index2']);
 
 //Route::get("/f1c2/{id?}/{id2?}",[App\Http\Controllers\Tablef1cController::class,'f1c2']);
