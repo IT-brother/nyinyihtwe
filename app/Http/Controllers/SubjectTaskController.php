@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\SubjectTask;
+use App\Models\Tablef3;
+use App\Models\Tablef3c;
 class SubjectTaskController extends Controller
 {
     /**
@@ -18,7 +20,31 @@ class SubjectTaskController extends Controller
         $subjecttasks = SubjectTask::all();
         return view("subjecttask.index",compact("subjecttasks"));
     }
-
+    public function index2(Request $request)
+    {
+        $tablef3s = Tablef3::query();
+        if(!empty($request->get("Кодструктуры")))
+        {
+            $tablef3s->where("Кодструктуры",$request->get("Кодструктуры"));
+        }
+        if(!empty($request->get("Степеньформализации")))
+        {
+            $tablef3s->where("Степеньформализации",$request->get("Степеньформализации"));
+        }
+        if(!empty($request->get("sort")))
+        {
+            if($request->get("sort") == "Возрастание") //ASC
+            {
+                $tablef3s->orderBy("КодПЗ1","ASC");
+            }else
+            {
+                $tablef3s->orderBy("КодПЗ1","DESC");
+            }
+        }
+        $tablef3s = $tablef3s->get();
+        $tablef3c = Tablef3c::all();
+        return view("tablef3.user2f3",compact("tablef3s","tablef3c"));
+    }
     /**
      * Show the form for creating a new resource.
      *

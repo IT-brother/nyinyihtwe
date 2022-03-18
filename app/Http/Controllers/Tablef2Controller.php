@@ -14,9 +14,15 @@ class Tablef2Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($pk)
     {
-        //
+        $tablef2 = Tablef2::where(function ($query) use ($pk) {
+                $query->where('КодПК_1', '=', $pk)
+                    ->orWhere('КодПК_2', '=', $pk)
+                    ->orWhere('КодПК_3','=',$pk);
+                }
+            )->get();
+        return view("tablef2.f2",compact("tablef2"));
     }
     public function f2Doc()
     {

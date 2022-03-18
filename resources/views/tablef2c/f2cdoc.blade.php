@@ -30,7 +30,7 @@
             @endif
         </div>
         <div class="col-xl-12 table-responsive p-0">
-            <table id="zero_config" class="table table-striped table-bordered">
+            <table id="zero_config" class="table-striped table-bordered" style="width:100%;font-size:14px">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -39,11 +39,11 @@
                         <th>КодПК_1</th>
                         <th>КодПК_2</th>
                         <th>КодПК_3</th>
-                        <th>НаименованиеСвязиПК</th>
+                        <th>Наименование
+                            СвязиПК</th>
                         <th>ТипСвязиПК</th>
                         <th>ОценкаСвязиПК</th>
                         <th>КодСвязиПК</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
@@ -60,15 +60,11 @@
                                 <td>{{$tablef1->ТипСвязиПК}}</td>
                                 <td>{{$tablef1->ОценкаСвязиПК}}</td>
                                 <td>{{$tablef1->КодСвязиПК}}</td>
-                                <td>
-                                    <button class="btn btn-success">Edit</button>
-                                    <button class="btn btn-danger">Delete</button>
-                                </td>
                             </tr>
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="11" style="text-align:center"> There is no record</td>
+                            <td colspan="10" style="text-align:center"> There is no record</td>
                         </tr>
                     @endif
                 </tbody>

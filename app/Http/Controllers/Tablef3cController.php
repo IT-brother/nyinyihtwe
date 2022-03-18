@@ -79,7 +79,7 @@ class Tablef3cController extends Controller
         //
     }
 
-    /**
+    /*
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -88,7 +88,12 @@ class Tablef3cController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update = Tablef3c::where("idtablef3c",$id)->first();
+        $update->Кодструктуры = $request->get("КОДСТРУКТУРЫ");
+        $update->update();
+        return response()->json([
+            "status" => true
+        ]);
     }
 
     /**

@@ -18,6 +18,11 @@ class Tablef1Controller extends Controller
         $tablef1s = Tablef1::where("Кодструктуры",$id)->get();
         return view("tablef1.index",compact("tablef1s"));
     }
+    public function index2($id)
+    {
+        $tablef1s = Tablef1::where("КодПК",$id)->get();
+        return view("tablef1.index",compact("tablef1s"));
+    }
     public function f1(Request $request,$id)
     {
         
@@ -51,7 +56,17 @@ class Tablef1Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $create = DB::table("tablef1")->insert([
+            "Кодструктуры" => $request->get("Кодструктуры"),
+            "КодПК"=> $request->get("КодПК"),
+            "НаименованиеПК" => $request->get("НаименованиеПК"),
+            "КлассПК" => $request->get("КлассПК"),
+            "ТипПК" => $request->get("ТипПК"),
+            "СтатусПК" => $request->get("СтатусПК"),
+            "ОценкаПК" => $request->get("ОценкаПК"),
+            "ПримечаниекПК" => $request->get("ПримечаниекПК"),
+        ]);
+        return redirect("/tablef1/".$request->get("Кодструктуры"))->with("status","Успешно добавление данных");
     }
 
     /**
@@ -98,4 +113,5 @@ class Tablef1Controller extends Controller
     {
         //
     }
+    
 }

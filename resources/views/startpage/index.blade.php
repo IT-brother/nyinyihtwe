@@ -47,7 +47,7 @@
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>{{$project_name->users->name}}</td>
-                                <td><a href="{{url('/selectmenu')}}">{{$project_name->name}}</a></td>
+                                <td><a href="{{url('/F1Link')}}">{{$project_name->name}}</a></td>
                             </tr>
                         @endforeach
                     @else

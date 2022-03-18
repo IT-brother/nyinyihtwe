@@ -30,18 +30,19 @@
             @endif
         </div>
         <div class="col-xl-12 table-responsive p-0">
-            <table id="zero_config" class="table table-striped table-bordered">
+            <table id="zero_config" class="table-striped table-bordered" style="width:100%;font-size:13px">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Кодструктуры</th>
                         <th>КодПЗ1</th>
                         <th>НаименованиеПЗ</th>
-                        <th>Степеньформализации</th>
+                        <th>Степень
+                            формализации</th>
                         <th>СтатусПЗ1</th>
-                        <th>СтруктурноеСвойствоПЗ1</th>
+                        <th>Структурное
+                            СвойствоПЗ1</th>
                         <th>ПримечаниеПЗ1</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
@@ -56,15 +57,12 @@
                                 <td>{{$tablef3->СтатусПЗ1}}</td>
                                 <td>{{$tablef3->СтруктурноеСвойствоПЗ1}}</td>
                                 <td>{{$tablef3->ПримечаниеПЗ1}}</td>
-                                <td>
-                                    <button class="btn btn-success">Edit</button>
-                                    <button class="btn btn-danger">Delete</button>
-                                </td>
+                                
                             </tr>
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="9" style="text-align:center"> There is no record</td>
+                            <td colspan="8" style="text-align:center"> There is no record</td>
                         </tr>
                     @endif
                 </tbody>

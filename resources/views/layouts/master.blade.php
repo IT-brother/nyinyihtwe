@@ -12,6 +12,25 @@
     <link rel="icon" href="{{asset('img/logo.png')}}" type="image/x-icon">
     <!-- vendor css -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+	<style>
+			.ul{
+				list-style-type: none;
+				display: inline-block;
+			}
+			.ul li{
+				list-style-type: none;
+				display: inline;
+				border-right:1px solid #ddd;
+				padding:7px;background:#f5f5f5;
+			}
+			.ul li a{
+				color:#000;
+			}
+			.ul li:hover a{
+				color:#0099FF;
+			}
+	</style>
+	@yield('style')   
 </head>
 <body>
 	<!-- [ Pre-loader ] start
@@ -40,41 +59,24 @@
 					    <label>Dashboard:</label>
 					</li> -->
                     @if(Auth::check())
+						
+						@if(Auth::user()->role_id == 1)
 							<li class="nav-item">
-								<a href="{{url('/start')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-download-cloud"></i></span><span class="pcoded-mtext">My Project</span></a>
+								<a href="{{url('/start')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-download-cloud"></i></span><span class="pcoded-mtext">Задание</span></a>
 							</li>
 							<li class="nav-item">
 								<a href="{{url('/selectmenu')}}" class="nav-link"><span class="pcoded-micon"><i class="feather icon-download-cloud"></i></span><span class="pcoded-mtext">Menu </span></a>
 							</li>
+						@else
+							<li class="nav-item">
+								<a href="{{url('/start2')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-download-cloud"></i></span><span class="pcoded-mtext">Задание</span></a>
+							</li>
+							<li class="nav-item">
+								<a href="{{url('/selectmenu2')}}" class="nav-link"><span class="pcoded-micon"><i class="feather icon-download-cloud"></i></span><span class="pcoded-mtext"> Обработка концептуальных моделей</span></a>
+							</li>
+						@endif
                     @endif
                     
-					
-					<!-- <li class="nav-item pcoded-menu-caption">
-					    <label>Chart & Maps</label>
-					</li>
-					<li class="nav-item">
-					    <a href="chart-apex.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Chart</span></a>
-					</li>
-					<li class="nav-item">
-					    <a href="map-google.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">Maps</span></a>
-					</li> -->
-                    
-					<!-- <li class="nav-item pcoded-menu-caption">
-					    <label>Auth:</label>
-					</li>
-					<li class="nav-item pcoded-hasmenu">
-					    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Authentication</span></a>
-					    <ul class="pcoded-submenu">
-                        <!-- @if(Auth::check())
-                            @if(Auth::user()->role_id == 1 )
-					        <li><a href="{{url(Auth::user()->roles->name.'/loginlog')}}" >Login Log</a></li>
-							<li><a href="{{url(Auth::user()->roles->name.'/users')}}" >Sign up</a></li>
-                            @endif
-					        <li><a href="{{ route('logout') }}"  title="sign-out" >Sign out</a></li>
-                        @endif -->
-					    <!-- </ul>
-					</li> --> 
-					<!-- <li class="nav-item"><a href="sample-page.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-sidebar"></i></span><span class="pcoded-mtext">Sample page</span></a></li> -->
 
 				</ul>
 				

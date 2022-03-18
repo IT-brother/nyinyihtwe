@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\tablef6;
 class Tablef6Controller extends Controller
 {
@@ -16,6 +17,11 @@ class Tablef6Controller extends Controller
         $tablef6s = Tablef6::where("Кодструктуры",$id)->get();
         return view("tablef6.index",compact("tablef6s"));
     }
+    public function index2($id)
+    {
+        $tablef6s = Tablef6::where("КодПЗ1",$id)->get();
+        return view("tablef6.index",compact("tablef6s"));
+    }
     public function f6($id)
     {
         $tablef6s = Tablef6::where("КодПЗ1",$id)->get();
@@ -25,6 +31,11 @@ class Tablef6Controller extends Controller
     {
         $tablef6s = Tablef6::where("idtablef6",$id)->get();
         return view("tablef6.index",compact("tablef6s")); 
+    }
+    public function f6Doc()
+    {
+        $tablef6s = Tablef6::all();
+        return view("tablef6.f6doc",compact("tablef6s"));
     }
     /**
      * Show the form for creating a new resource.
@@ -44,7 +55,17 @@ class Tablef6Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $create = DB::table("tablef6")->insert([
+            "Кодструктуры" => $request->get("Кодструктуры"),
+            "КодПЗ1"=> $request->get("КодПЗ1"),
+            "СтруктурноеСвойствоПЗ1" => $request->get("СтруктурноеСвойствоПЗ1"),
+            "КодПК" => $request->get("КодПК"),
+            "РольПК" => $request->get("РольПК"),
+            "СтруктурноеСвойствоПК" => $request->get("СтруктурноеСвойствоПК"),
+            "ОбъемноеСвойствоПК" => $request->get("ОбъемноеСвойствоПК"),
+            "ОсобаяРольПК" => $request->get("ОсобаяРольПК"),
+        ]);
+        return redirect("/tablef6/".$request->get("Кодструктуры"))->with("status","Успешно добавление данных");
     }
 
     /**

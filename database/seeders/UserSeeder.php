@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             array(
                 'name'  =>'admin',
                 'phone'   => '+74834383',
-                'username' =>'admin',
+                'email' =>'admin@gmail.com',
                 'password' => Hash::make('admin'),                
                 'created_at' => now()->toDateTimeString(),
                 'updated_at' => now()->toDateTimeString()

@@ -18,7 +18,7 @@
             @endif
         </div>
         <div class="col-xl-12 table-responsive p-0">
-            <table id="zero_config" class="table table-striped table-bordered">
+            <table id="zero_config" style="width:100%;font-size:14px;" class="table-striped table-bordered">
                 <thead>
                     <tr>
                         <th>#</th>

@@ -18,7 +18,7 @@
 @endsection
 @section('content')
         <div class="col-xl-12 mb-2">
-            <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#tableF3Modal">Add</button>
+            <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#tableF3Modal">Заполнение с текущим кодов структуры</button>
         </div>
         <div class="col-xl-12">
             @if(count($errors->all()) > 0)
@@ -31,19 +31,21 @@
                 <div class="alert alert-success w-50">{{session('status')}}</div>
             @endif
         </div>
-        <div class="col-xl-12 table-responsive p-0">
-            <table id="zero_config" class="table table-striped table-bordered">
+        <br/><br/><br/>
+        <div class="col-xl-12 table-responsive p-0 mt-3">
+            <table id="zero_config" class="table-striped table-bordered" style="width:100%;font-size:14px">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Кодструктуры</th>
                         <th>КодПЗ1</th>
                         <th style="width:250px;max-width:250px !important;">НаименованиеПЗ</th>
-                        <th>Степеньформализации</th>
+                        <th>Степень
+                            формализации</th>
                         <th>СтатусПЗ1</th>
-                        <th>СтруктурноеСвойствоПЗ1</th>
+                        <th>Структурное
+                            СвойствоПЗ1</th>
                         <th>ПримечаниеПЗ1</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
@@ -58,22 +60,18 @@
                                 <td>{{$tablef3->СтатусПЗ1}}</td>
                                 <td>{{$tablef3->СтруктурноеСвойствоПЗ1}}</td>
                                 <td>{{$tablef3->ПримечаниеПЗ1}}</td>
-                                <td>
-                                    <button class="btn btn-success">Edit</button>
-                                    <button class="btn btn-danger">Delete</button>
-                                </td>
                             </tr>
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="9" style="text-align:center"> There is no record</td>
+                            <td colspan="8" style="text-align:center"> There is no record</td>
                         </tr>
                     @endif
                 </tbody>
             </table>
         </div>
         <div class="modal fade" id="tableF3Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <form method="POST" id="tablef3Form">
                     @csrf
                     <div class="modal-content">
@@ -83,32 +81,32 @@
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <div class="form-group">
+                        <div class="modal-body row">
+                            <div class="form-group col-xl-6">
                                 <label for="КОДСТРУКТУРЫ">КОДСТРУКТУРЫ <b class="text-danger">*</b></label>
                                 <input type="text" class="form-control" required autocomplete="off" name="КОДСТРУКТУРЫ" id="КОДСТРУКТУРЫ">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-xl-6">
                                 <label for="КОДПЗ1">КОДПЗ1 <b class="text-danger">*</b></label>
                                 <input type="text" class="form-control" required autocomplete="off" name="КОДПЗ1" id="КОДПЗ1">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-xl-6">
                                 <label for="НаименованиеПЗ">НаименованиеПЗ <b class="text-danger">*</b></label>
                                 <input type="text" class="form-control" name="НаименованиеПЗ" id="НаименованиеПЗ" required autocomplete="off" >
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-xl-6">
                                 <label for="Степеньформализации">Степеньформализации <b class="text-danger">*</b></label>
                                 <input type="text" class="form-control" name="Степеньформализации" id="Степеньформализации" required autocomplete="off" >
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-xl-6">
                                 <label for="СтатусПЗ1">СтатусПЗ1 <b class="text-danger">*</b></label>
                                 <input type="text" class="form-control" name="СтатусПЗ1" id="СтатусПЗ1" required autocomplete="off" >
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-xl-6">
                                 <label for="СтруктурноеСвойствоПЗ1">СтруктурноеСвойствоПЗ1 <b class="text-danger">*</b></label>
                                 <input type="text" class="form-control" name="СтруктурноеСвойствоПЗ1" id="СтруктурноеСвойствоПЗ1" required autocomplete="off" >
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-xl-6">
                                 <label for="ПримечаниеПЗ1">ПримечаниеПЗ1 <b class="text-danger">*</b></label>
                                 <input type="text" class="form-control" name="ПримечаниеПЗ1" id="ПримечаниеПЗ1" required autocomplete="off" >
                             </div>

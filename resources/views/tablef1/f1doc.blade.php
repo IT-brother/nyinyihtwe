@@ -28,7 +28,7 @@
             
         </div>
         <div class="col-xl-12 table-responsive p-0">
-            <table id="zero_config" class="table table-striped table-bordered">
+            <table id="zero_config" class="table-striped table-bordered" style="width:100%;font-size:14px">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -40,7 +40,6 @@
                         <th>СтатусПК</th>
                         <th>ОценкаПК</th>
                         <th>ПримечаниекПК</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
@@ -56,10 +55,7 @@
                                 <td>{{$tablef1->ТипПК}}</td>
                                 <td>{{$tablef1->СтатусПК}}</td>
                                 <td>{{$tablef1->ПримечаниекПК}}</td>
-                                <td>
-                                    <button class="btn btn-success">Edit</button>
-                                    <button class="btn btn-danger">Delete</button>
-                                </td>
+                                
                             </tr>
                         @endforeach
                     @else

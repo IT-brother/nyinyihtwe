@@ -18,7 +18,11 @@ class StartPageController extends Controller
         $project_names = ProjectName::all();
         return view("startpage.index",compact("project_names"));
     }
-
+    public function index2()
+    {
+        $project_names = ProjectName::all();
+        return view("startpage.index2",compact("project_names"));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -51,10 +55,22 @@ class StartPageController extends Controller
             ]);
             if($store)
             {
-                return redirect("/start")->with("status","Successfully inserted");
+                if(Auth::user()->role_id == 1)
+                {
+                    return redirect("/start")->with("status","Successfully inserted");
+                }else
+                {
+                    return redirect("/start2")->with("status","Successfully inserted");
+                }
             }else
             {
-                return redirect("/start")->with("error","Error occured!");
+                if(Auth::user()->role_id == 1)
+                {
+                    return redirect("/start")->with("error","Error occured!");
+                }else
+                {
+                    return redirect("/start2")->with("error","Error occured!");
+                }
             }
         }
     }
@@ -69,7 +85,10 @@ class StartPageController extends Controller
     {
         return view("startpage.selectedmenu");
     }
-
+    public function show2()
+    {
+        return view("startpage.selectedmenu2");
+    }
     /**
      * Show the form for editing the specified resource.
      *

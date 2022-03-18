@@ -19,17 +19,20 @@
             <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#f6cModal">Add</button>
         </div>
         <div class="col-xl-12 table-responsive p-0">
-            <table id="zero_config" class="table table-striped table-bordered">
+            <table id="zero_config" class="table-striped table-bordered" style="width:100%;font-size:14px">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Кодструктуры</th>
                         <th>КодПЗ1</th>
-                        <th>СтруктурноеСвойствоПЗ1</th>
+                        <th>Структурное
+                            СвойствоПЗ1</th>
                         <th>КодПК</th>
                         <th>РольПК</th>
-                        <th>СтруктурноеСвойствоПК</th>
-                        <th>ОбъемноеСвойствоПК</th>
+                        <th>Структурное
+                            СвойствоПК</th>
+                        <th>Объемное
+                            СвойствоПК</th>
                         <th>ОсобаяРольПК</th>
                         <th>Action</th>
                     </tr>

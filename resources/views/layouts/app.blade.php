@@ -29,11 +29,10 @@
                 </a>-->
                 <a href="">
                             <b class="logo-icon">
-                                <img src="{{asset('img/mof.png')}}" alt="homepage" style="width:50px;"/>
                             </b>
                         
                             <span class="logo-text font-weight-bold">
-                                Ministry of Information
+                               
                             </span>
                         </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

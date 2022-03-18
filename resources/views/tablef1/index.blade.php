@@ -3,9 +3,9 @@
 @section('header')
 @endsection
 @section('content')
-        <!-- <div class="col-xl-12 mb-2">
-            <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#f1cModal">Add</button>
-        </div> -->
+        <div class="col-xl-12 mb-2">
+            <button class="btn btn-warning float-right mb-2" data-toggle="modal" data-target="#f1cModalInsert">Заполнение с текущим кодов структуры</button>
+        </div>
         <div class="col-xl-12">
             @if(count($errors->all()) > 0)
                 <div class="alert alert-danger w-50">{{implode(",",$errors->all())}}</div>
@@ -13,10 +13,12 @@
             @if(session("error"))
                 <div class="alert alert-error w-50">{{session('error')}}</div>
             @endif
-            
-        </div>
+            @if(session("status"))
+                <div class="alert alert-success w-50">{{session('status')}}</div>
+            @endif
+        </div><br/><br/><br/><br/>
         <div class="col-xl-12 table-responsive p-0">
-            <table id="zero_config" class="table table-striped table-bordered">
+            <table id="zero_config" style="width:100%;font-size:14px" class="table-striped table-bordered">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -28,7 +30,7 @@
                         <th>СтатусПК</th>
                         <th>ОценкаПК</th>
                         <th>ПримечаниекПК</th>
-                        <th>Action</th>
+                        <!-- <th>Action</th> -->
                     </tr>
                 </thead>
                 <tbody class="bg-white">
@@ -37,37 +39,37 @@
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>{{$tablef1->Кодструктуры}}</td>
-                                <td>{{$tablef1->КодПК}}</td>
+                                <td><a href="{{url('/tablef2/'.$tablef1->КодПК)}}">{{$tablef1->КодПК}}</a></td>
                                 <td>{{$tablef1->НаименованиеПК}}</td>
                                 <td>{{$tablef1->КлассПК}}</td>
                                 <td>{{$tablef1->ТипПК}}</td>
                                 <td>{{$tablef1->ТипПК}}</td>
                                 <td>{{$tablef1->СтатусПК}}</td>
                                 <td>{{$tablef1->ПримечаниекПК}}</td>
-                                <td>
+                                <!-- <td>
                                     <button class="btn btn-success">Edit</button>
                                     <button class="btn btn-danger">Delete</button>
-                                </td>
+                                </td> -->
                             </tr>
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="10" style="text-align:center"> There is no record</td>
+                            <td colspan="9" style="text-align:center"> There is no record</td>
                         </tr>
                     @endif
                 </tbody>
             </table>
         </div>
         
-        <div class="col-xl-12">
+        <!-- <div class="col-xl-12">
             <div class="row">
                 <form method="GET"   class="col-xl-6 row">
                     <div class="form-group col-xl-6">
                         <label for="codestructure" class="control-label">КОДСТРУКТУРЫ</label>
                         <select class="form-control bg-white" name="Кодструктуры" id="codestructure">
                             <option vlaue=""></option>
-                            @if(count($tablef1c)  > 0)
-                                @foreach($tablef1c as $key=>$f1c)
+                            @if(count($tablef1s)  > 0)
+                                @foreach($tablef1s as $key=>$f1c)
                                     <option value="{{$f1c->Кодструктуры}}">{{$f1c->Кодструктуры}}</option>
                                 @endforeach
                             @endif
@@ -85,50 +87,8 @@
                     <div class="col-xl-4 alert alert-success w-50">{{session('status')}}</div>
                 @endif
             </div>
-        </div>
-        <div class="col-xl-12 table-responsive p-0">
-            <table id="zero_config" class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Кодструктуры</th>
-                        <th>КодПК</th>
-                        <th>НаименованиеПК</th>
-                        <th>КлассПК</th>
-                        <th>ТипПК</th>
-                        <th>СтатусПК</th>
-                        <th>ОценкаПК</th>
-                        <th>ПримечаниекПК</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white">
-                    @if(count($tablef1c2) > 0)
-                        @foreach($tablef1c2 as $key=>$tablef1c)
-                            <tr>
-                                <td>{{$key + 1}}</td>
-                                <td>{{$tablef1c->Кодструктуры}}</td>
-                                <td>{{$tablef1c->КодПК}}</td>
-                                <td>{{$tablef1c->НаименованиеПК}}</td>
-                                <td>{{$tablef1c->КлассПК}}</td>
-                                <td>{{$tablef1c->ТипПК}}</td>
-                                <td>{{$tablef1c->ТипПК}}</td>
-                                <td>{{$tablef1c->СтатусПК}}</td>
-                                <td>{{$tablef1c->ПримечаниекПК}}</td>
-                                <td>
-                                    <button class="btn btn-success">Edit</button>
-                                    <button class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                        @endforeach
-                    @else
-                        <tr>
-                            <td colspan="10" style="text-align:center"> There is no record</td>
-                        </tr>
-                    @endif
-                </tbody>
-            </table>
-        </div>
+        </div> -->
+
         <!-- modals --->
         <div class="modal fade" id="f1cModalInsert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
@@ -136,7 +96,7 @@
                     @csrf
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Добавление этой  записи в табл. F1с с текущей кодом структуры</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Заполнение с текущим кодов структуры</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
@@ -144,11 +104,11 @@
                         <div class="modal-body row">
                             <div class="form-group col-xl-6">
                                 <label for="КОДСТРУКТУРЫ">КОДСТРУКТУРЫ <b class="text-danger">*</b></label>
-                                <input type="text" class="form-control" value="{{request()->Кодструктуры}}"   required autocomplete="off" name="Кодструктуры" id="КОДСТРУКТУРЫ">
+                                <input type="text" class="form-control" value="{{request()->id}}"   required autocomplete="off" name="Кодструктуры" id="КОДСТРУКТУРЫ">
                             </div>
                             <div class="form-group col-xl-6">
                                 <label for="КодПК">КодПК <b class="text-danger">*</b></label>
-                                <input type="text" class="form-control" value="{{request()->id}}"   required autocomplete="off" name="КодПК" id="КодПК">
+                                <input type="text" class="form-control"    required autocomplete="off" name="КодПК" id="КодПК">
                             </div>
                             <div class="form-group col-xl-6">
                                 <label for="НаименованиеПК">НаименованиеПК <b class="text-danger">*</b></label>
