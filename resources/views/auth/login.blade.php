@@ -65,7 +65,7 @@
 							</div> -->
 							
 							<div><button type="submit" class="btn btn-block btn-primary mb-4">Signin</button></div>
-							<div><a href="{{url('/register')}}">Register?</a></div>
+							<div><a href="{{url('/register')}}">Создать нового пользователя</a></div>
 
 							</form>
 							<!-- <p class="mb-2 text-muted">Forgot password? <a href="{{url('/login')}}" class="f-w-400">Reset</a></p>
