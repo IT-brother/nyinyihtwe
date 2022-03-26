@@ -33,12 +33,13 @@
         @endif
     </div>
         <div class="col-xl-12 table-responsive p-0">
-            <table id="zero_config" class="table table-striped table-bordered">
+        <table id="zero_config" class="table table-striped table-bordered">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Name</th>
                         <th>Project Name</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
@@ -48,17 +49,115 @@
                                 <td>{{$key + 1}}</td>
                                 <td>{{$project_name->users->name}}</td>
                                 <td><a href="{{url('/selectmenu2')}}">{{$project_name->name}}</a></td>
+                                <td>
+                                    <button class="btn btn-success pt-1 pb-1 pr-4 pl-4 edit" data-id="{{$project_name}}"><i class="fa fa-edit"></i> Edit</button>
+                                    <button class="btn btn-danger pt-1 pb-1 pr-4 pl-4 delete" data-id="{{$project_name}}"><i class="fa fa-times"></i> Delete</button>
+
+                                </td>
                             </tr>
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="3" style="text-align:center"> There is no record</td>
+                            <td colspan="4" style="text-align:center"> There is no record</td>
                         </tr>
                     @endif
                 </tbody>
             </table>
         </div>
+<!-- modals --->
+<div class="modal fade" id="projectNameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form method="POST" id="editProjectForm">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit project name</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="project_name">Project name <b class="text-danger">*</b></label>
+                        <input type="hidden" name="id" id="id" />
+                        <input type="text" class="form-control" required autocomplete="off" name="name" id="project_name">
+                    </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection
 @section("script")
-
+<script>
+     $(document).ready(function(){
+        var baseUrl = '{{url('')}}'
+        $(document).on("click",".edit",function(){
+            console.log(JSON.stringify($(this).data("id")));
+            $("#projectNameModal").modal("show");
+            var data= $(this).data("id");
+            $("#id").val(data.id);
+            $("#project_name").val(data.name);
+        });
+        $(document).on("submit","#editProjectForm",function(ev){
+            ev.preventDefault();
+            var id = $("#id").val();
+            var formdata = new FormData(this);
+           // alert(id);
+            $.ajax({
+                url: baseUrl+'/start/'+id+'/update',
+                type: "POST",
+                data: formdata,
+                cache:false,
+                contentType:false,
+                processData:false,
+                success: function(response) {
+                    console.log(response);
+                    if(response.status == true)
+                    {
+                        alert(response.msg);
+                        window.location.reload();
+                    }else
+                    {
+                        alert("Fail");
+                    }
+                }
+            });
+        });
+        $(document).on("click",".delete",function(ev){
+        ev.preventDefault();
+            var conf = confirm("Are you Sure want to delete?");
+            var data = $(this).data("id");
+            var id = data.id;
+            var formdata = new FormData();
+            if(conf == true)
+            {
+                $.ajax({
+                    url: baseUrl+'/start/'+id+'/delete',
+                    type: "GET",
+                    data: formdata,
+                    cache:false,
+                    contentType:false,
+                    processData:false,
+                    success: function(response) {
+                        console.log(response);
+                        if(response.status == true)
+                        {
+                            alert(response.msg);
+                            window.location.reload();
+                        }else
+                        {
+                            alert("Fail");
+                        }
+                    }
+                });
+            }
+        });
+     });
+</script>
 @endsection

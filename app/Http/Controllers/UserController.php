@@ -19,8 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(10);
-        return  view("users.index",compact('users'));
+        return  view("users.profile");
     }
     public function moderatorsIndex()
     {
@@ -158,9 +157,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $user = User::find(Auth::user()->id);
+        $user->name = $request->get("name");
+        $user->address = $request->get("address");
+        if($request->get("password") !="")
+        {
+            $user->password = Hash::make($request->get("password"));
+        }
+        $user->update();
+        return redirect("/profile")->with("status","Profile updated successfully");
     }
 
     /**

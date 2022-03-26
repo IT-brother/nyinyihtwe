@@ -15,12 +15,16 @@ class StartPageController extends Controller
      */
     public function index()
     {
-        $project_names = ProjectName::all();
+        $project_names = ProjectName::leftJoin("users","users.id","=","project_names.user_id")
+                        ->select("project_names.*")
+                        ->where("users.role_id",1)->get();
         return view("startpage.index",compact("project_names"));
     }
     public function index2()
     {
-        $project_names = ProjectName::all();
+        $project_names = ProjectName::leftJoin("users","users.id","=","project_names.user_id")
+                        ->select("project_names.*")
+                        ->where("users.role_id",2)->get();
         return view("startpage.index2",compact("project_names"));
     }
     /**
@@ -109,7 +113,21 @@ class StartPageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validate = Validator::make($request->only('name'), [
+            'name'  => 'required',
+        ]);
+        if($validate->fails()){
+            return redirect("/start")->withErrors($validate)->withInput();
+        }else
+        {
+          $update = ProjectName::find($id);
+          $update->name = $request->get("name");
+          $update->update();
+          return response()->json([
+            "status" => true,
+            "msg" => "Project name updated successfully"
+          ]);
+        }
     }
 
     /**
@@ -120,6 +138,10 @@ class StartPageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ProjectName::find($id)->delete();
+        return response()->json([
+            "status" => true,
+            "msg" => "Project name deleted successfully"
+        ]);
     }
 }

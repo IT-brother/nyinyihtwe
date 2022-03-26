@@ -177,7 +177,7 @@
                     @csrf
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Заполнение спецификации с текушем Код структуры</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Заполнение спецификации с текушем Код структуры </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
@@ -186,7 +186,7 @@
                             <div class="form-group col-xl-6">
                                 <input type="hidden" name="idtablef3c" id="idtablef3c">
                                 <label for="КОДСТРУКТУРЫ">КОДСТРУКТУРЫ <b class="text-danger">*</b></label>
-                                <input type="text" class="form-control" required autocomplete="off" name="КОДСТРУКТУРЫ" id="КОДСТРУКТУРЫ">
+                                <input type="text" class="form-control" required autocomplete="off" name="mycode" id="КОДСТРУКТУРЫ">
                             </div>
                             <div class="form-group col-xl-6">
                                 <label for="КОДПЗ1">КОДПЗ1 <b class="text-danger">*</b></label>
@@ -248,7 +248,7 @@
                     if(response.status == true)
                     {
                         window.location.reload();
-                        alert("Successfully deleted!");
+                        alert("Successfully updated!");
                     }else
                     {
                         alert("Fail");

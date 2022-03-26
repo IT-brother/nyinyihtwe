@@ -9,5 +9,6 @@ class Tablef3c extends Model
 {
     use HasFactory;
     protected $table ="tablef3c";
+    protected $primaryKey = "idtablef3c";
     protected $fillable=["Кодструктуры","КодПЗ1", "НаименованиеПЗ1", "Степеньформализации","СтатусПЗ1","СтруктурноеCвойствоПЗ1","ПримечаниеПЗ1"];
 }

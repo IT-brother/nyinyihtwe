@@ -32,7 +32,13 @@ class LoginController extends Controller
         //$owner = Auth::user()->role_id = 2;
         if(Auth::check())
         {
-            return "/start";
+            if(Auth::user()->role_id ==1 )
+            {
+                return "/start";
+            }else
+            {
+                return "/start2";
+            }
         }else
         {
             return '/login';

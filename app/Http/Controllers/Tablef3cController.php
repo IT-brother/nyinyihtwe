@@ -88,9 +88,9 @@ class Tablef3cController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $update = Tablef3c::where("idtablef3c",$id)->first();
-        $update->Кодструктуры = $request->get("КОДСТРУКТУРЫ");
-        $update->update();
+        $update = Tablef3c::find($id);
+        $update->Кодструктуры = $request->get("mycode");
+        $update->save();
         return response()->json([
             "status" => true
         ]);

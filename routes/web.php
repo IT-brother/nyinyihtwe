@@ -22,6 +22,9 @@ Route::get("/logout",[App\Http\Controllers\Auth\LoginController::class,'logout']
 Auth::routes();
 Route::get("/start",[App\Http\Controllers\StartPageController::class,'index']);
 Route::post("/start",[App\Http\Controllers\StartPageController::class,'store']);
+Route::post("/start/{id}/update",[App\Http\Controllers\StartPageController::class,'update']);
+Route::get("/start/{id}/delete",[App\Http\Controllers\StartPageController::class,'destroy']);
+
 Route::get("/selectmenu",[App\Http\Controllers\StartPageController::class,'show']);
 Route::get("/subjecttask",[App\Http\Controllers\SubjectTaskController::class,'index']);
 Route::post("/subjecttask",[App\Http\Controllers\SubjectTaskController::class,'store']);
@@ -119,6 +122,8 @@ Route::get("/selectmenu2",[App\Http\Controllers\StartPageController::class,'show
 Route::get("/start2",[App\Http\Controllers\StartPageController::class,'index2']);
 Route::post("/start2",[App\Http\Controllers\StartPageController::class,'store']);
 Route::get("/subjecttask2",[App\Http\Controllers\SubjectTaskController::class,'index2']);
+Route::get("/profile",[App\Http\Controllers\UserController::class,'index']);
+Route::post("/profile",[App\Http\Controllers\UserController::class,'update']);
 
 //Route::get("/f1c2/{id?}/{id2?}",[App\Http\Controllers\Tablef1cController::class,'f1c2']);
 //Route::post("/f1c2/{id?}/{id2?}",[App\Http\Controllers\Tablef1cController::class,'f1c2Store']);
