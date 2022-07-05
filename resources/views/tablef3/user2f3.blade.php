@@ -61,19 +61,19 @@
                         "Возрастание","Убывание"
                     );
                 ?>
-                <div class="form-group col-md-6 col-lg-3 m-0 pb-0">
+                <!-- <div class="form-group col-md-6 col-lg-3 m-0 pb-0">
                     <label for="sort" class="control-label" style="margin:0px;padding:0;font-size:1.2em;color:#666;">Упорядочение	 </label>
                     <select  name="sort" style="background:#eee" id="sort" autocomplete="off" class="form-control">
-                        <option value="">Choose</option>
-                        @foreach($sorts as $sort)
+                        <option value="">Choose</option> -->
+                        <!-- @foreach($sorts as $sort)
                             @if($sort == request()->sort)
                                 <option value="{{$sort}}" selected>{{$sort}}</option>
                             @else
                                 <option value="{{$sort}}">{{$sort}}</option>
                             @endif
-                        @endforeach
-                    </select>
-                </div>
+                        @endforeach -->
+                    <!-- </select>
+                </div> -->
                 <div class="form-group col-md-6 col-lg-3 mt-0 pt-0">
                     <label for="" class="control-label mt-0">&nbsp;&nbsp;</label>
                     <button type="submit"  value="Save" class="btn btn-primary mt-4"><i class="fa fa-search"></i> выбрать</button>
@@ -92,21 +92,21 @@
             @endif
         </div>
         <div class="col-xl-12  p-0">
-                <h4>Table F3</h4>
+                <h4>Table W1</h4>
             <table id="zero_config" class="table-bordered table-striped" style="width:100%">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Кодструктуры</th>
                         <th>КодПЗ1</th>
-                        <th style="width:350px;">НаименованиеПЗ</th>
+                        <!-- <th style="width:350px;">НаименованиеПЗ</th>
                         <th>Степень
                             формализации</th>
                         <th>СтатусПЗ1</th>
                         <th>Структурное
                             СвойствоПЗ1</th>
                         <th>Примечание
-                            ПЗ1</th>
+                            ПЗ1</th> -->
                     </tr>
                 </thead>
                 <tbody class="bg-white">
@@ -114,18 +114,20 @@
                         @foreach($tablef3s as $key=>$tablef3)
                             <tr>
                                 <td>{{$key + 1}}</td>
-                                <td>{{$tablef3->Кодструктуры}}</td>
-                                <td><a href="{{url('/tablef62/'.$tablef3->КодПЗ1)}}">{{$tablef3->КодПЗ1}}</a></td>
-                                <td style="width:250px;max-width:250px !important;">{{$tablef3->НаименованиеПЗ}}</td>
+                                <td>{{$tablef3->Кодструктуры}}</td>index2
+                                <td><a href="{{url('/w2table')}}">{{$tablef3->КодПЗ1}}</a></td>
+                                <!-- <td><a href="{{url('/tablef62/'.$tablef3->КодПЗ1)}}">{{$tablef3->КодПЗ1}}</a></td> -->
+
+                                <!-- <td style="width:250px;max-width:250px !important;">{{$tablef3->НаименованиеПЗ}}</td>
                                 <td>{{$tablef3->Степеньформализации}}</td>
                                 <td>{{$tablef3->СтатусПЗ1}}</td>
                                 <td>{{$tablef3->СтруктурноеСвойствоПЗ1}}</td>
-                                <td>{{$tablef3->ПримечаниеПЗ1}}</td>
+                                <td>{{$tablef3->ПримечаниеПЗ1}}</td> -->
                             </tr>
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="8" style="text-align:center"> There is no record</td>
+                            <td colspan="3" style="text-align:center"> There is no record</td>
                         </tr>
                     @endif
                 </tbody>

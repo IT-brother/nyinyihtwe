@@ -124,6 +124,7 @@ Route::post("/start2",[App\Http\Controllers\StartPageController::class,'store'])
 Route::get("/subjecttask2",[App\Http\Controllers\SubjectTaskController::class,'index2']);
 Route::get("/profile",[App\Http\Controllers\UserController::class,'index']);
 Route::post("/profile",[App\Http\Controllers\UserController::class,'update']);
+Route::get("/w2table/{sorting?}",[App\Http\Controllers\W2TableController::class,'index']);
 
 //Route::get("/f1c2/{id?}/{id2?}",[App\Http\Controllers\Tablef1cController::class,'f1c2']);
 //Route::post("/f1c2/{id?}/{id2?}",[App\Http\Controllers\Tablef1cController::class,'f1c2Store']);

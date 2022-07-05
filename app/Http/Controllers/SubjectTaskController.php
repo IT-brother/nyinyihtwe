@@ -31,16 +31,16 @@ class SubjectTaskController extends Controller
         {
             $tablef3s->where("Степеньформализации",$request->get("Степеньформализации"));
         }
-        if(!empty($request->get("sort")))
-        {
-            if($request->get("sort") == "Возрастание") //ASC
-            {
-                $tablef3s->orderBy("КодПЗ1","ASC");
-            }else
-            {
-                $tablef3s->orderBy("КодПЗ1","DESC");
-            }
-        }
+        // if(!empty($request->get("sort")))
+        // {
+        //     if($request->get("sort") == "Возрастание") //ASC
+        //     {
+        //         $tablef3s->orderBy("КодПЗ1","ASC");
+        //     }else
+        //     {
+        //         $tablef3s->orderBy("КодПЗ1","DESC");
+        //     }
+        // }
         $tablef3s = $tablef3s->get();
         $tablef3c = Tablef3c::all();
         return view("tablef3.user2f3",compact("tablef3s","tablef3c"));
