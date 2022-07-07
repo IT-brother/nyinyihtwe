@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\W2table;
+use App\Models\Tablef3;
 class W2TableController extends Controller
 {
     /**
@@ -33,7 +34,12 @@ class W2TableController extends Controller
             $codeposition = array_column($w2tables, 'codeposition');
             array_multisort($codelevel, SORT_DESC, $codeposition, SORT_DESC, $w2tables);
        }
-        return view("w2table.index",compact("w2tables"));
+       $tablef3s = array();
+       foreach($w2tables as $key=>$data)
+       {
+            $tablef3s[] = Tablef3::where("Степеньформализации","Стат")->where("КодПЗ1",$data["codepz"])->first();
+       }
+        return view("w2table.index",compact("w2tables","tablef3s"));
     }
    public static function sortByASC($a, $b) {
         return ($a['codelevel'].$a["codeposition"]	> $b['codelevel'].$b['codeposition']);

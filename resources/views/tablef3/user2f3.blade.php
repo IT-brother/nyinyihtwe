@@ -114,7 +114,7 @@
                         @foreach($tablef3s as $key=>$tablef3)
                             <tr>
                                 <td>{{$key + 1}}</td>
-                                <td>{{$tablef3->Кодструктуры}}</td>index2
+                                <td>{{$tablef3->Кодструктуры}}</td>
                                 <td><a href="{{url('/w2table')}}">{{$tablef3->КодПЗ1}}</a></td>
                                 <!-- <td><a href="{{url('/tablef62/'.$tablef3->КодПЗ1)}}">{{$tablef3->КодПЗ1}}</a></td> -->
 

@@ -47,6 +47,48 @@
                 </tbody>
             </table>
         </div>
+        <div class="col-xl-12  p-0">
+                <h4>Table F3</h4>
+            <table id="zero_config" class="table-bordered table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Кодструктуры</th>
+                        <th>КодПЗ1</th>
+                        <th style="width:350px;">НаименованиеПЗ</th>
+                        <th>Степень
+                            формализации</th>
+                        <th>СтатусПЗ1</th>
+                        <th>Структурное
+                            СвойствоПЗ1</th>
+                        <th>Примечание
+                            ПЗ1</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    @if(count($tablef3s) > 0)
+                        @foreach($tablef3s as $key=>$tablef3)
+                            <tr>
+                                <td>{{$key + 1}}</td>
+                                <td>{{$tablef3["Кодструктуры"]}}</td>
+                                <td><a href="{{url('/w2table')}}">{{$tablef3->КодПЗ1}}</a></td>
+                                <td><a href="{{url('/tablef62/'.$tablef3->КодПЗ1)}}">{{$tablef3->КодПЗ1}}</a></td> 
+
+                                <td style="width:250px;max-width:250px !important;">{{$tablef3->НаименованиеПЗ}}</td>
+                                <td>{{$tablef3->Степеньформализации}}</td>
+                                <td>{{$tablef3->СтатусПЗ1}}</td>
+                                <td>{{$tablef3->СтруктурноеСвойствоПЗ1}}</td>
+                                <td>{{$tablef3->ПримечаниеПЗ1}}</td>
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td colspan="3" style="text-align:center"> There is no record</td>
+                        </tr>
+                    @endif
+                </tbody>
+            </table>
+        </div>
 @endsection
 @section("script")
 
